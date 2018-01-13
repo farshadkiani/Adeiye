@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="White">#ffffff</color>
+    <color name="colorGreen">#013334</color>
+
+    <color name="kadr_color">#eaeaea</color>
+    <color name="color_bottom_image">#67fc76</color>
+
+    <color name="black">#000000</color>
+
+    <color name="khakestari">#979797</color>
+
+    <color name="green">#15ed02</color>
+
+    <color name="pink">#c401d2</color>
+
+    <color name="abirooshan">#09d5ec</color>
+
+    <color name="yellow">#f3f711</color>
+
+    <color name="narengi">#f79711</color>
+
+    <color name="ghermez">#f72811</color>
+
+    <color name="sabz">#11e8f7</color>
+
+    <color name="sabzrooshan">#11f73f</color>
+
+</resources>

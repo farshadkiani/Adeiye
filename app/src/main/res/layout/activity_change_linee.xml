@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/White"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorGreen"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="15sp"
+        android:textColor="@color/White"/>
+
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="8dp"
+        android:weightSum="1">
+
+        <CheckBox
+            android:id="@+id/red_chb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/colorAccent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="0.25"
+            android:layout_marginLeft="8dp"
+            android:onClick="itemClicked"/>
+
+        <CheckBox
+            android:id="@+id/green_chb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/green"
+            android:layout_weight="0.25"
+            android:onClick="itemClicked"/>
+
+        <CheckBox
+            android:id="@+id/blue_chb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/abirooshan"
+            android:layout_weight="0.25"
+            android:onClick="itemClicked"/>
+
+        <CheckBox
+            android:id="@+id/yellow_chb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@color/yellow"
+            android:layout_weight="0.25"
+            android:onClick="itemClicked"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/example_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/example"/>
+
+    <com.cuboid.cuboidcirclebutton.CuboidButton
+        android:id="@+id/example_btn"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:text="دعای عهد"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:layout_gravity="center"
+        app:cub_border_color="@color/colorAccent"
+        app:cub_border_radius="4dp"
+        app:cub_color="@color/colorPrimary"
+        app:cub_hover_color="@color/colorAccent"
+        app:cub_riple_effect="true" />
+
+
+    <Button
+        android:id="@+id/done_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/done"
+        android:textColor="@color/White"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/rectangel_button"
+        android:layout_marginBottom="8dp"/>
+
+</LinearLayout>

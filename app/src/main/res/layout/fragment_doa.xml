@@ -1,0 +1,397 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.farzadfarshad.adeiye.Fragments.DoaFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/day_img"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/placeholder" />
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="horizontal">
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="دعای عهد"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.example.farzadfarshad.adeiye.Tools.CuboidButton
+                        android:id="@+id/faraj_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="دعای فرج"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/komeil_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="دعای کمیل"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="دعای زمان"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="دعای "
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="No Border"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <include
+                android:id="@+id/include_player"
+                layout="@layout/zekr_ayam_week" />
+
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="horizontal">
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/ashora_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/ashoora"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.example.farzadfarshad.adeiye.Tools.CuboidButton
+                        android:id="@+id/aleyasin_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/amin"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/amin_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/vares"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/vares_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/aleyasin"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorGreen"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:id="@+id/image_img"
+                        android:layout_width="100dp"
+                        android:layout_height="90dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/flowerrotate" />
+
+                    <TextView
+                        android:id="@+id/date_year_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/White"
+                        android:textSize="22sp" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="16dp"
+                        android:textColor="@color/White"
+                        android:textSize="16sp" />
+
+
+                    <TextView
+                        android:id="@+id/date_milady"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/White"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/date_month"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/White"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:orientation="horizontal">
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/salavat_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/salavat"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.example.farzadfarshad.adeiye.Tools.CuboidButton
+                        android:id="@+id/tasbihat_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/tasbihat"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/ayamhafte_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/zekrayamhafte"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:id="@+id/sajde_btn"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/sajdeshomar"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="4dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorGreen"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/titlehadis_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="یا علی:"
+                    android:textColor="@color/White"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/hsdis_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="
+اگر نمازگزار بداند تا چه حد مشمول رحمت الهى است هرگز سر خود را از سجده بر نخواهد داشت ."
+                    android:textColor="@color/White"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/slamafarshad" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

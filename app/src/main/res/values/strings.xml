@@ -1,0 +1,553 @@
+<resources>
+    <string name="app_name">ادعیه</string>
+    <string name="change_image_rotate">عوض کردن عکس چرخشی</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="get_data">در حال گرفتن اطلاعات</string>
+
+    <string name="doa_faraj">دعای فرج</string>
+
+    <string name="add_favorite_list">دعای مورد نظر به لیست علاقه مندی اضافه شد</string>
+
+    <string name="zekr_sunday">یا ذالجلال والاکرام</string>
+    <string name="zekr_saturday">یا رب العالمین</string>
+    <string name="zekr_monday">یا قاضی الحاجات</string>
+    <string name="zekr_thurzday">یا ارحم الراحمین</string>
+    <string name="zekr_wednesday">یا حی یا قیوم</string>
+    <string name="zekr_tuesday">لا اله الا الله الملک الحق المبین</string>
+    <string name="zekr_friday">اللهم صل علی محمد و ال محمد</string>
+    <string name="title_activity_maps">Map</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_home">خانه</string>
+    <string name="nav_guide">راهنما</string>
+    <string name="nav_setting">تنظیمات</string>
+    <string name="nav_notifications">دریافت پیام</string>
+    <string name="nav_azan">تنظیمات اذان</string>
+    <string name="nav_mosque">پیدا کردن مسجدهای اطراف شما</string>
+    <string name="nav_about_us">درباره ما</string>
+
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>Home</item>
+        <item>Photos</item>
+        <item>Movies</item>
+        <item>Notifications</item>
+        <item>mosque</item>
+    </string-array>
+
+    <string name="activity_title_about_us">About Us</string>
+    <string name="activity_title_privacy_policy">Privacy Policy</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="privacy_policy">Privacy Policy</string>
+
+    <string name="change_color_app">عوض کردن رنگ برنامه</string>
+    <string name="change_line_around_view">عوض کردن رنگ دور شکل ها</string>
+
+
+    <string name="example">نمونه:</string>
+
+    <string name="done">اعمال تغییرات</string>
+
+    <string name="select">دریافت شده</string>
+
+    <string name="ashoora">عاشورا</string>
+    <string name="vares">وارث</string>
+    <string name="aleyasin">آل یاسین</string>
+    <string name="amin">امین الله</string>
+
+
+    <string name="salavat">صلوات شمار</string>
+    <string name="tasbihat">تسبیحات</string>
+    <string name="zekrayamhafte">ذکر ایام هفته</string>
+    <string name="sajdeshomar">سجده شمار</string>
+
+
+    <string name="context_menu">Context menu</string>
+
+    <string name="play">پخش</string>
+
+
+    <string name="dark">حالت شب</string>
+
+    <string name="choice_ostan">استان خود را انتخاب کنید</string>
+    <string name="choice_shahrestan">شهرستان خود را انتخاب کنید</string>
+
+    <string name="save">ذخیره</string>
+
+
+    <string-array name="province">
+        <item>آذربایجان شرقی</item>
+        <item>آذربایجان غربی</item>
+        <item>اردبیل</item>
+        <item>اصفهان</item>
+        <item>البرز</item>
+        <item>ایلام</item>
+        <item>بوشهر</item>
+        <item>تهران</item>
+        <item>چهارمحال و بختیاری</item>
+        <item>خراسان جنوبی</item>
+        <item>خراسان رضوی</item>
+        <item>خراسان شمالی</item>
+        <item>خوزستان</item>
+        <item>زنجان</item>
+        <item>سمنان</item>
+        <item>سیستان و بلوچستان</item>
+        <item>فارس</item>
+        <item>قزوین</item>
+        <item>قم</item>
+        <item>کردستان</item>
+        <item>کرمان</item>
+        <item>کرمانشاه</item>
+        <item>کهکیلویه و بویراحمد</item>
+        <item>گلستان</item>
+        <item>گیلان</item>
+        <item>لرستان</item>
+        <item>مازندران</item>
+        <item>مرکزی</item>
+        <item>هرمزگان</item>
+        <item>همدان</item>
+        <item>یزد</item>
+    </string-array>
+    ///provice tehran
+    <string-array name="city7">
+        <item>اسلام شهر</item>
+        <item>بهارستان</item>
+        <item>پاکدشت</item>
+        <item>پردیس</item>
+        <item>تهران</item>
+        <item>دماوند</item>
+        <item>رباط کریم</item>
+        <item>ری</item>
+        <item>شمیرانات</item>
+        <item>شهریار</item>
+        <item>فیروزکوه</item>
+        <item>قدس</item>
+        <item>ورامین</item>
+    </string-array>
+    ////province azarbayjan sharghi
+    <string-array name="city0">
+        <item>آذرشهر</item>
+        <item>اسکو</item>
+        <item>اهر</item>
+        <item>بستان آباد</item>
+        <item>بناب</item>
+        <item>تبریز</item>
+        <item>جلفا</item>
+        <item>چاراویماق</item>
+        <item>سراب</item>
+        <item>شبستر</item>
+        <item>عجب شیر</item>
+        <item>کلیبر</item>
+        <item>مراغه</item>
+        <item>مرند</item>
+        <item>ملکان</item>
+        <item>میانه</item>
+    </string-array>
+    /////province azarbayjan gharbi
+    <string-array name="city1">
+        <item>ارومیه</item>
+        <item>اشنویه</item>
+        <item>بوکان</item>
+        <item>پیرانشهر</item>
+        <item>تکاب</item>
+        <item>چالدران</item>
+        <item>خوی</item>
+        <item>سردشت</item>
+        <item>سلماس</item>
+        <item>شاهین دژ</item>
+        <item>ماکو</item>
+        <item>مهاباد</item>
+        <item>میاندوآب</item>
+        <item>نقده</item>
+    </string-array>
+    /////province ardabil
+    <string-array name="city2">
+        <item>اردبیل</item>
+        <item>بیله سوار</item>
+        <item>پارس آباد</item>
+        <item>خلخال</item>
+        <item>کوثر</item>
+        <item>گرمی</item>
+        <item>مشگین شهر</item>
+        <item>نمین</item>
+        <item>نیر</item>
+    </string-array>
+    /////province karaj
+    <string-array name="city4">
+        <item>اشتهارد</item>
+        <item>ساوجبلاغ</item>
+        <item>طالقان</item>
+        <item>فردیس</item>
+        <item>کرج</item>
+        <item>نظرآباد</item>
+    </string-array>
+    /////province esfahan
+    <string-array name="city3">
+        <item>آران و بیدگل</item>
+        <item>اردستان</item>
+        <item>اصفهان</item>
+        <item>برخوار و میمه</item>
+        <item>بوئین میاندشت</item>
+        <item>تیران و کرون</item>
+        <item>خمینی شهر</item>
+        <item>خوانسار</item>
+        <item>سمیرم</item>
+        <item>شهرضا</item>
+        <item>فریدون</item>
+        <item>فریدون شهر</item>
+    </string-array>
+    /////province eilam
+    <string-array name="city5">
+        <item>آبدانان</item>
+        <item>ایلام</item>
+        <item>ایوان</item>
+        <item>چرداول</item>
+        <item>دره شهر</item>
+        <item>دهلران</item>
+        <item>سیروان</item>
+        <item>مهران</item>
+    </string-array>
+    /////province booshehr
+    <string-array name="city6">
+        <item>بوشهر</item>
+        <item>تنگستان</item>
+        <item>جم</item>
+        <item>دشتستان</item>
+        <item>دشتی</item>
+        <item>دیر</item>
+        <item>دیلم</item>
+        <item>عسلویه</item>
+        <item>کنگان</item>
+        <item>گناوه</item>
+    </string-array>
+    /////province charmahal
+    <string-array name="city8">
+        <item>اردل</item>
+        <item>بروجن</item>
+        <item>شهرکرد</item>
+        <item>فارسان</item>
+        <item>کوهرنگ</item>
+        <item>لردگان</item>
+    </string-array>
+    /////province khorasan joonobi
+    <string-array name="city9">
+        <item>بشرویه</item>
+        <item>بیرحند</item>
+        <item>سرایان</item>
+        <item>سربیشه</item>
+        <item>طبس</item>
+        <item>فردوس</item>
+        <item>قائنات</item>
+        <item>نهبندان</item>
+    </string-array>
+    /////province khorasan razavi
+    <string-array name="city10">
+        <item>باخرز</item>
+        <item>بجستان</item>
+        <item>بردسکن</item>
+        <item>تایباد</item>
+        <item>تربت جام</item>
+        <item>تربت حیدریه</item>
+        <item>جفتای</item>
+        <item>جوین</item>
+        <item>چناران</item>
+        <item>خلیل آباد</item>
+        <item>خواف</item>
+        <item>خوشاب</item>
+        <item>درگز</item>
+        <item>رشتخوار</item>
+        <item>سبزوار</item>
+        <item>سرخس</item>
+        <item>فریمان</item>
+        <item>فیروزه</item>
+        <item>قوچان</item>
+        <item>کاشمر</item>
+        <item>کلات</item>
+        <item>گلبهار</item>
+        <item>گناباد</item>
+        <item>مشهد</item>
+        <item>نیشابور</item>
+    </string-array>
+    /////province khorasan shomali
+    <string-array name="city11">
+        <item>اسفراین</item>
+        <item>بجنورد</item>
+        <item>جاجرم</item>
+        <item>راز و جرگلان</item>
+        <item>شیروان</item>
+        <item>فاروج</item>
+        <item>گرمه</item>
+        <item>مانه و سملقان</item>
+    </string-array>
+    /////province khozestan
+    <string-array name="city12">
+        <item>آبادان</item>
+        <item>امیدیه</item>
+        <item>اندیمشک</item>
+        <item>اهواز</item>
+        <item>ایذه</item>
+        <item>باغ ملک</item>
+        <item>بندر ماهشهر</item>
+        <item>بهبهان</item>
+        <item>خرمشهر</item>
+        <item>دزفول</item>
+        <item>دشت آزادگان</item>
+        <item>رامهرمز</item>
+        <item>شادگان</item>
+        <item>شوش</item>
+        <item>شوشتر</item>
+        <item>گتوند</item>
+        <item>مسجد سلیمان</item>
+        <item>هندیجان</item>
+    </string-array>
+    /////province zanjan
+    <string-array name="city13">
+        <item>ابهر</item>
+        <item>ایجرود</item>
+        <item>خدابنده</item>
+        <item>خرمدره</item>
+        <item>زنجان</item>
+        <item>سلطانیه</item>
+        <item>طارم</item>
+        <item>ماه نشان</item>
+    </string-array>
+    /////province semnan
+    <string-array name="city14">
+        <item>آرادان</item>
+        <item>دامغان</item>
+        <item>سرخه</item>
+        <item>سمنان</item>
+        <item>شاهرود</item>
+        <item>گرمسار</item>
+        <item>مهدی شهر</item>
+        <item>میامی</item>
+    </string-array>
+    /////province sistan
+    <string-array name="city15">
+        <item>ایرنشهر</item>
+        <item>جاه بهار</item>
+        <item>خاش</item>
+        <item>راسک</item>
+        <item>زابل</item>
+        <item>زاهدان</item>
+        <item>سراوان</item>
+        <item>نیکشهر</item>
+    </string-array>
+    /////province fars
+    <string-array name="city16">
+        <item>آباده</item>
+        <item>ارسنجان</item>
+        <item>استهبان</item>
+        <item>اقلید</item>
+        <item>بوانات</item>
+        <item>جهرم</item>
+        <item>خرم بید</item>
+        <item>داراب</item>
+        <item>زرین دشت</item>
+        <item>سپیدان</item>
+        <item>شیراز</item>
+        <item>فسا</item>
+        <item>فیروز آباد</item>
+        <item>قیروکارزین</item>
+        <item>کازرون</item>
+        <item>گراش</item>
+        <item>لارستان</item>
+        <item>لامرد</item>
+        <item>مرودشت</item>
+        <item>ممسنی</item>
+        <item>مهر</item>
+        <item>نی ریز</item>
+    </string-array>
+    /////province ghazvin
+    <string-array name="city17">
+        <item>آبیک</item>
+        <item>بوئین زهرا</item>
+        <item>تاکستان</item>
+        <item>قزوین</item>
+    </string-array>
+    /////province qom
+    <string-array name="city18">
+        <item>قم</item>
+    </string-array>
+    /////province kordestan
+    <string-array name="city19">
+        <item>بانه</item>
+        <item>بیجار</item>
+        <item>دیواندره</item>
+        <item>سروآباد</item>
+        <item>سقز</item>
+        <item>سنندج</item>
+        <item>قروه</item>
+        <item>کامیران</item>
+        <item>مریوان</item>
+    </string-array>
+    /////province kerman
+    <string-array name="city20">
+        <item>بافت</item>
+        <item>بردسیر</item>
+        <item>بم</item>
+        <item>جیرفت</item>
+        <item>راور</item>
+        <item>رفسنجان</item>
+        <item>زرند</item>
+        <item>سیرجان</item>
+        <item>شهر بابک</item>
+        <item>فاریاب</item>
+        <item>کرمان</item>
+        <item>کهنوج</item>
+        <item>منوجان</item>
+    </string-array>
+    /////province kermanshah
+    <string-array name="city21">
+        <item>اسلام آباد غرب</item>
+        <item>پاوه</item>
+        <item>ثلاث باباجانی</item>
+        <item>جوانرود</item>
+        <item>روانسر</item>
+        <item>سر پل ذهاب</item>
+        <item>سنقر</item>
+        <item>صحنه</item>
+        <item>قصر شیرین</item>
+        <item>کرمانشاه</item>
+        <item>کنگاور</item>
+        <item>گیلان غرب</item>
+        <item>هرسین</item>
+    </string-array>
+    /////province kohkilio
+    <string-array name="city22">
+        <item>بویراحمد</item>
+        <item>دنا</item>
+        <item>کهکیلویه</item>
+        <item>گچساران</item>
+    </string-array>
+    /////province golestan
+    <string-array name="city23">
+        <item>آزادشهر</item>
+        <item>آق قلا</item>
+        <item>بندرگز</item>
+        <item>ترکمن</item>
+        <item>رامیان</item>
+        <item>علی آباد</item>
+        <item>کردکوی</item>
+        <item>کلاله</item>
+        <item>گرگان</item>
+        <item>گنبد کاووس</item>
+        <item>مینودشت</item>
+    </string-array>
+    /////province gilan
+    <string-array name="city24">
+        <item>آستارا</item>
+        <item>آستانه اشرفیه</item>
+        <item>املش</item>
+        <item>بندر انزلی</item>
+        <item>رشت</item>
+        <item>رضوانشهر</item>
+        <item>رودبار</item>
+        <item>رودسر</item>
+        <item>سیاهکل</item>
+        <item>شفت</item>
+        <item>صومعه سرا</item>
+        <item>طوالش</item>
+        <item>فومن</item>
+        <item>لاهیجان</item>
+        <item>لنگرود</item>
+        <item>ماسال</item>
+    </string-array>
+    /////province lorestan
+    <string-array name="city25">
+        <item>ازنا</item>
+        <item>الیگودرز</item>
+        <item>بروجرد</item>
+        <item>پلدختر</item>
+        <item>خرم آباد</item>
+        <item>دلفان</item>
+        <item>دورود</item>
+        <item>سلسله</item>
+        <item>کوهدشت</item>
+    </string-array>
+    /////province mazandaran
+    <string-array name="city26">
+        <item>آمل</item>
+        <item>بابل</item>
+        <item>بابلسر</item>
+        <item>بهشهر</item>
+        <item>تنکابن</item>
+        <item>جویبار</item>
+        <item>چالوس</item>
+        <item>رامسر</item>
+        <item>ساری</item>
+        <item>سوادکوه</item>
+        <item>عباس آباد</item>
+        <item>قائم شهر</item>
+        <item>کلاردشت</item>
+        <item>محمود آباد</item>
+        <item>نکائ</item>
+        <item>نور</item>
+        <item>نوشهر</item>
+    </string-array>
+    /////province markazi
+    <string-array name="city27">
+        <item>آشتیان</item>
+        <item>اراک</item>
+        <item>تفرش</item>
+        <item>خمین</item>
+        <item>ساوه</item>
+        <item>شازند</item>
+        <item>محلات</item>
+        <item>مرکزی</item>
+    </string-array>
+    /////province hormozgan
+    <string-array name="city28">
+        <item>ابوموسی</item>
+        <item>بستک</item>
+        <item>بندرعباس</item>
+        <item>بندرلنگه</item>
+        <item>جاسک</item>
+        <item>حاجی آباد</item>
+        <item>رودان</item>
+        <item>قشم</item>
+        <item>میناب</item>
+    </string-array>
+    /////province hamedan
+    <string-array name="city29">
+        <item>اسدآباد</item>
+        <item>بهار</item>
+        <item>تویسرکان</item>
+        <item>رزن</item>
+        <item>فامنین</item>
+        <item>کبودرآهنگ</item>
+        <item>ملایر</item>
+        <item>نهاوند</item>
+        <item>همدان</item>
+    </string-array>
+    /////province yazd
+    <string-array name="city30">
+        <item>ابرکوه</item>
+        <item>اردکان</item>
+        <item>اشکذر</item>
+        <item>بافق</item>
+        <item>بهاباد</item>
+        <item>تفت</item>
+        <item>خاتم</item>
+        <item>مهریز</item>
+        <item>میبد</item>
+        <item>یزد</item>
+    </string-array>
+
+
+    <string name="slamafarshad">سلام فرشاد</string>
+
+    <string name="error_server_namaz">خطایی رخ داده است</string>
+    <string name="success_getdata_namaz">با موفقیت داده های مربوط به اوقات شرعی گرفته شد</string>
+</resources>

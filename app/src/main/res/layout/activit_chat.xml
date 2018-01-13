@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="576dp"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|right"
+        android:text="0"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="576dp"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|right"
+        android:text="0"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"/>
+
+
+    <Button
+        android:id="@+id/btn_clearEntity"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="CE"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="C"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_division"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="/"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <Button
+        android:id="@+id/btn_7"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="7"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_8"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="8"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_9"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="9"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_multiply"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="X"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <Button
+        android:id="@+id/btn_4"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="4"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_5"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="5"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_6"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="6"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+    <Button
+        android:id="@+id/btn_negative"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="-"
+        android:textColor="#000000"
+        android:textSize="20sp"/>
+
+
+    <Button
+        android:id="@+id/btn_1"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="1"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="0dp"
+        tools:layout_conversion_absoluteY="211dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="49dp"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="0dp"/>
+
+    <Button
+        android:id="@+id/btn_2"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="2"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="148dp"
+        tools:layout_conversion_absoluteY="211dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="49dp"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="148dp"/>
+
+    <Button
+        android:id="@+id/btn_3"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="3"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="296dp"
+        tools:layout_conversion_absoluteY="211dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="49dp"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="296dp"/>
+
+    <Button
+        android:id="@+id/btn_pluse"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="+"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="444dp"
+        tools:layout_conversion_absoluteY="211dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="49dp"
+        tools:layout_editor_absoluteY="219dp"
+        tools:layout_editor_absoluteX="444dp"/>
+
+
+    <Button
+        android:id="@+id/btn_sign"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="+-"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="0dp"
+        tools:layout_conversion_absoluteY="260dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="268dp"
+        tools:layout_editor_absoluteX="0dp"/>
+
+    <Button
+        android:id="@+id/btn_0"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="148dp"
+        tools:layout_conversion_absoluteY="260dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="268dp"
+        tools:layout_editor_absoluteX="148dp"/>
+
+    <Button
+        android:id="@+id/btn_dot"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="."
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="296dp"
+        tools:layout_conversion_absoluteY="260dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="268dp"
+        tools:layout_editor_absoluteX="296dp"/>
+
+    <Button
+        android:id="@+id/btn_equal"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:width="0dp"
+        android:text="="
+        android:textColor="#000000"
+        android:textSize="20sp"
+        tools:layout_conversion_absoluteX="444dp"
+        tools:layout_conversion_absoluteY="260dp"
+        tools:layout_conversion_absoluteWidth="148dp"
+        tools:layout_conversion_absoluteHeight="50dp"
+        tools:layout_editor_absoluteY="268dp"
+        tools:layout_editor_absoluteX="444dp"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="@string/nav_home" />
+        <item
+            android:id="@+id/nav_photos"
+            android:icon="@drawable/info"
+            android:title="@string/nav_guide" />
+        <item
+            android:id="@+id/nav_movies"
+            android:icon="@drawable/settinges"
+            android:title="@string/nav_setting" />
+
+
+        <item
+            android:id="@+id/nav_notifications"
+            android:icon="@drawable/notification"
+            android:title="@string/nav_notifications" />
+
+        <item
+            android:id="@+id/nav_azan"
+            android:icon="@drawable/azanmosque"
+            android:title="@string/nav_azan" />
+
+
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/mosquelocation"
+            android:title="@string/nav_mosque" />
+    </group>
+
+    <item android:title="گزینه های دیگر">
+        <menu>
+            <item
+                android:id="@+id/nav_about_us"
+                android:title="@string/nav_about_us" />
+            <!--<item
+                android:id="@+id/nav_privacy_policy"
+                android:title="@string/privacy_policy" />-->
+        </menu>
+    </item>
+
+</menu>
