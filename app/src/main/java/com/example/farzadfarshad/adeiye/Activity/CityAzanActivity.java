@@ -1,6 +1,7 @@
 package com.example.farzadfarshad.adeiye.Activity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.Toast;
 import com.activeandroid.query.Select;
 import com.example.farzadfarshad.adeiye.Database.AyeDb;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
+import com.example.farzadfarshad.adeiye.MainActivity;
 import com.example.farzadfarshad.adeiye.Model.AzanModel.Example;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPI;
@@ -72,12 +74,18 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.ofogh_txt)
     TextView ofogh_txt;
 
+    @BindView(R.id.pakhsh_txt)
+    TextView pakhsh_txt;
+
     @BindView(R.id.play_img)
     ImageView play_img;
 
 
     @BindView(R.id.back_img)
     ImageView back_img;
+
+    @BindView(R.id.image_azan)
+    ImageView image_azan;
 
     String[] SPINNERLIST;
 
@@ -93,6 +101,8 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
         ButterKnife.bind(this);
         save_btn.setOnClickListener(this);
         back_img.setOnClickListener(this);
+        image_azan.setOnClickListener(this);
+        pakhsh_txt.setOnClickListener(this);
 
         initView();
     }
@@ -274,7 +284,20 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
             case R.id.back_img:
                 onBackPressed();
                 break;
+
+            case R.id.image_azan:
+                goToPakhshAzan();
+                break;
+
+            case R.id.pakhsh_txt:
+                goToPakhshAzan();
+                break;
         }
+    }
+
+    private void goToPakhshAzan() {
+        Intent intent = new Intent(this, PakhshAzan.class);
+        startActivity(intent);
     }
 
     private void getdata() {

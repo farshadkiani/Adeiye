@@ -99,14 +99,19 @@
             android:enabled="true"
             android:exported="true"
             android:icon="@drawable/flower"
-            android:label="salam"></service>
+            android:label="salam" />
 
-        <receiver android:name=".MyBroadcastReceiver"></receiver>
+        <receiver android:name=".MyBroadcastReceiver" />
         <receiver
             android:name=".Hoshdar"
             android:process=":remote" />
 
-        <activity android:name=".Activity.PakhshAzan"></activity>
+        <activity
+            android:name=".Activity.PakhshAzan"
+            android:theme="@style/dialog" />
+        <activity android:name=".Activity.noteActivity" />
+
+        <activity android:name=".Activity.QiblaActivity" />
     </application>
 
 </manifest>

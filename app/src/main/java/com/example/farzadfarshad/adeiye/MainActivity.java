@@ -37,6 +37,8 @@ import com.example.farzadfarshad.adeiye.Activity.ChangeLineActivtiy;
 import com.example.farzadfarshad.adeiye.Activity.CityAzanActivity;
 import com.example.farzadfarshad.adeiye.Activity.Gheblenama;
 import com.example.farzadfarshad.adeiye.Activity.Login;
+import com.example.farzadfarshad.adeiye.Activity.QiblaActivity;
+import com.example.farzadfarshad.adeiye.Activity.noteActivity;
 import com.example.farzadfarshad.adeiye.Fragments.DoaFragment;
 import com.example.farzadfarshad.adeiye.Services.MyService;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
@@ -109,16 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calendar.set(Calendar.YEAR , 2018);
         calendar.set(Calendar.DAY_OF_MONTH , 11);*/
 
-        calendar.set(Calendar.HOUR_OF_DAY , 9);
-        calendar.set(Calendar.MINUTE , 25);
+        calendar.set(Calendar.HOUR_OF_DAY, 9);
+        calendar.set(Calendar.MINUTE, 25);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM , Calendar.AM);
+        calendar.set(Calendar.AM_PM, Calendar.AM);
         /*Intent intent = new Intent(this, MyBroadcastReceiver.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         // schedule for every 30 seconds
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30 * 1000, pintent);*/
-
 
 
         Intent intent = new Intent(this, MyService.class);
@@ -129,7 +130,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 + (2 * 1000), pendingIntent);*/
         /*alarmManager.setRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime()
                 , 60 * 1000, pendingIntent);*/
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP , calendar.getTimeInMillis() , pendingIntent);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 
 
 //        alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime() , pendingIntent);
@@ -315,8 +316,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvCaption2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChangeColorActivity.class);
+
+                Intent intent = new Intent(MainActivity.this, QiblaActivity.class);
                 startActivity(intent);
+
             }
         });
     }

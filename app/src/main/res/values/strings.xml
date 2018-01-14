@@ -550,4 +550,30 @@
 
     <string name="error_server_namaz">خطایی رخ داده است</string>
     <string name="success_getdata_namaz">با موفقیت داده های مربوط به اوقات شرعی گرفته شد</string>
+
+
+    <string name="pakhsh_azan">لطفا اذان هایی که می خواهید پخش شوند را انتخاب نمایید.</string>
+    <string name="pakhsh_azan_son">پخش اذان صبح</string>
+    <string name="pakhsh_azan_zohr">پخش اذان ظهر</string>
+    <string name="pakhsh_azan_maghreb">پخش اذان مغرب</string>
+
+
+    <string name="bearing_north">1) Bearing North = (1)°</string>
+    <string name="bearing_qibla">2) Bearing Qibla = (1) (+/-) (2)° = (3)°</string>
+
+    <string name="default_location_text">Direction of Qibla \nin %s</string>
+    <!-- Do not translate next two tag, it's used by program for other reasons -->
+    <string name="gps_pref_key">GPS_LOCATION_PREF</string>
+    <string name="state_location_pref_key">state_LOCATION_PREF</string>
+    <string name="about_menu_title">About</string>
+    <string name="settings_label">Settings</string>
+    <string name="prefs_menu_title">Settings</string>
+    <string name="geo_location_info">Location Data Acquired.</string>
+    <string name="latitude_north">N</string>
+    <string name="latitude_south">S</string>
+    <string name="longitude_east">E</string>
+    <string name="longitude_west">W</string>
+    <string name="screen_down_text">Please hold your phone horizontally and toward upside so that it\'s compass could work. Can\'t determine the direction of the north accurately now.</string>
+    <string name="no_location_yet">Please wait. Detecting your location...\nOr you can select your city in the Settings.</string>
+
 </resources>

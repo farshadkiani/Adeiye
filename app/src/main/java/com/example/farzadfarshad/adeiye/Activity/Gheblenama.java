@@ -6,12 +6,17 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.farzadfarshad.adeiye.R;
+import com.example.farzadfarshad.adeiye.Tools.QiblaCompassView;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Gheblenama extends Activity implements SensorEventListener {
 
@@ -26,10 +31,21 @@ public class Gheblenama extends Activity implements SensorEventListener {
 
     TextView tvHeading;
 
+
+    private static android.hardware.SensorListener sOrientationListener;
+    private static float sQiblaDirection = 0f;
+    private static boolean isTrackingOrientation = false;
+    private static DecimalFormat sDecimalFormat;
+    private static final String TAG = Gheblenama.class.getSimpleName();
+    private static final String PATTERN = "#.###";
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gheblenama);
+
 
         // our compass image
         image = (ImageView) findViewById(R.id.imageViewCompass);
@@ -39,15 +55,55 @@ public class Gheblenama extends Activity implements SensorEventListener {
 
         // initialize your android device sensor capabilities
         mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+
+
+
+
+
+
+
+        try {
+            sDecimalFormat = new DecimalFormat(PATTERN);
+        } catch (AssertionError ae) {
+            Log.wtf(TAG, "Could not construct DecimalFormat", ae);
+            Log.d(TAG, "Will try with Locale.US");
+            NumberFormat format = NumberFormat.getInstance(Locale.US);
+            if (format instanceof DecimalFormat) {
+                sDecimalFormat = (DecimalFormat) format;
+                sDecimalFormat.applyPattern(PATTERN);
+            }
+        }
+
+
+
+        final QiblaCompassView qiblaCompassView = (QiblaCompassView) findViewById(R.id.qibla_compass);
+        qiblaCompassView.setConstants(((TextView) findViewById(R.id.bearing_north)),
+                getText(R.string.bearing_north),
+                ((TextView) findViewById(R.id.bearing_qibla)),
+                getText(R.string.bearing_qibla));
+        sOrientationListener = new android.hardware.SensorListener() {
+            @Override
+            public void onSensorChanged(int s, float v[]) {
+                float northDirection = v[SensorManager.DATA_X];
+                qiblaCompassView.setDirections(northDirection, sQiblaDirection);
+            }
+
+            @Override
+            public void onAccuracyChanged(int s, int a) {
+            }
+        };
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-
+        if (!isTrackingOrientation) {
+            isTrackingOrientation = mSensorManager.registerListener(sOrientationListener,
+                    SensorManager.SENSOR_ORIENTATION);
+        }
         // for the system's orientation sensor registered listeners
-        mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
-                SensorManager.SENSOR_DELAY_GAME);
+      /*  mSensorManager.registerListener(this, mSensorManager.getDefaultSensor(Sensor.TYPE_ORIENTATION),
+                SensorManager.SENSOR_DELAY_GAME);*/
     }
 
     @Override
@@ -92,4 +148,6 @@ public class Gheblenama extends Activity implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // not in use
     }
+
+
 }
