@@ -34,6 +34,7 @@ import android.widget.ViewFlipper;
 
 import com.example.farzadfarshad.adeiye.Activity.ChangeColorActivity;
 import com.example.farzadfarshad.adeiye.Activity.ChangeLineActivtiy;
+import com.example.farzadfarshad.adeiye.Activity.CircleActivity;
 import com.example.farzadfarshad.adeiye.Activity.CityAzanActivity;
 import com.example.farzadfarshad.adeiye.Activity.Gheblenama;
 import com.example.farzadfarshad.adeiye.Activity.Login;
@@ -56,6 +57,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.sliding_img)
     ImageView sliding_img;
+
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
 
     private ViewFlipper mViewFlipper;
 
@@ -111,26 +115,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         calendar.set(Calendar.YEAR , 2018);
         calendar.set(Calendar.DAY_OF_MONTH , 11);*/
 
-        calendar.set(Calendar.HOUR_OF_DAY, 9);
-        calendar.set(Calendar.MINUTE, 25);
+        calendar.set(Calendar.HOUR_OF_DAY, 20);
+        calendar.set(Calendar.MINUTE, 35);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM, Calendar.AM);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
         /*Intent intent = new Intent(this, MyBroadcastReceiver.class);
         PendingIntent pintent = PendingIntent.getService(this, 0, intent, 0);
         AlarmManager alarm = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
         // schedule for every 30 seconds
         alarm.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(), 30 * 1000, pintent);*/
 
-
-        Intent intent = new Intent(this, MyService.class);
+        //ToDo salam
+        /*Intent intent = new Intent(this, MyService.class);
         final PendingIntent pendingIntent = PendingIntent.getService(
                 this.getApplicationContext(), 0, intent, 0);
-        final AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        final AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);*/
+
+
         /*alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis()
                 + (2 * 1000), pendingIntent);*/
         /*alarmManager.setRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime()
                 , 60 * 1000, pendingIntent);*/
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
+
+        //ToDo salam
+//        alarmManager.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
 
 
 //        alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP , SystemClock.elapsedRealtime() , pendingIntent);
@@ -316,8 +324,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvCaption2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+/*
                 Intent intent = new Intent(MainActivity.this, QiblaActivity.class);
+                startActivity(intent);*/
+
+                Intent intent = new Intent(MainActivity.this, CircleActivity.class);
                 startActivity(intent);
 
             }
@@ -535,5 +546,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             drawer.closeDrawers();
         else
             super.onBackPressed();
+    }
+
+    public void setTitleToolbar(String tag){
+        switch (tag){
+
+            case "doa":
+                toolbar_title.setText("دعاها");
+                break;
+
+            case "zekrrooz":
+                toolbar_title.setText("ذکر روز");
+                break;
+
+            case "ziarat":
+                toolbar_title.setText("زیارت");
+                break;
+
+            case "adeiye":
+                toolbar_title.setText(getResources().getString(R.string.app_name));
+                break;
+
+        }
+
     }
 }

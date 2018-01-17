@@ -163,6 +163,7 @@ public class CuboidButton extends TextView {
         }
         setGravity(Gravity.CENTER);
 
+
         if (ripleEffect) {
             if (mCoord.x != 0 && mCoord.y != 0) {
                 canvas.drawCircle(mCoord.x, mCoord.y, mRadius, mPaint);

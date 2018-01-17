@@ -14,6 +14,8 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 
+import com.activeandroid.query.Select;
+import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.Services.MyService;
 
 import java.text.DateFormat;
@@ -28,13 +30,11 @@ public class Hoshdar extends BroadcastReceiver {
     MediaPlayer mediaPlayer;
     AlarmManager am;
     PendingIntent pi;
-    SharedPreferences sharedpreferences;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
         try {
-            sharedpreferences = context.getSharedPreferences("allprefs", context.MODE_PRIVATE);
             PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
             PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
             wl.acquire();
@@ -59,14 +59,15 @@ public class Hoshdar extends BroadcastReceiver {
         pi = PendingIntent.getBroadcast(context, 0, i, 0);
         am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 60000, pi);*/
 
-//        Toast.makeText(context, "salam farshad", Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "salam farshad", Toast.LENGTH_SHORT).show();
 
         final Calendar calendar = Calendar.getInstance();
 
-        calendar.set(Calendar.HOUR_OF_DAY , 9);
-        calendar.set(Calendar.MINUTE , 35);
+
+
+        calendar.set(Calendar.HOUR_OF_DAY , 20);
+        calendar.set(Calendar.MINUTE , 41);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.AM_PM , Calendar.AM);
 
 
         Intent myIntent = new Intent(context, MyService.class);
@@ -114,5 +115,12 @@ public class Hoshdar extends BroadcastReceiver {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static List<OghatDb> getAll(String day) {
+        return new Select()
+                .from(OghatDb.class)
+                .where("Day = ?", day)
+                .execute();
     }
 }

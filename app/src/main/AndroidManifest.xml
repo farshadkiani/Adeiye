@@ -17,6 +17,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <uses-feature android:name="android.hardware.location.gps" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -110,8 +112,8 @@
             android:name=".Activity.PakhshAzan"
             android:theme="@style/dialog" />
         <activity android:name=".Activity.noteActivity" />
-
         <activity android:name=".Activity.QiblaActivity" />
+        <activity android:name=".Activity.CircleActivity"></activity>
     </application>
 
 </manifest>

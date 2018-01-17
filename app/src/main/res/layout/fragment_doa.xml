@@ -6,6 +6,7 @@
     tools:context="com.example.farzadfarshad.adeiye.Fragments.DoaFragment">
 
     <ScrollView
+        android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fillViewport="true">
@@ -22,8 +23,10 @@
                 android:src="@drawable/placeholder" />
 
             <HorizontalScrollView
+                android:id="@+id/horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -129,6 +132,7 @@
 
 
             <HorizontalScrollView
+                android:id="@+id/horizontal_ziarat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
