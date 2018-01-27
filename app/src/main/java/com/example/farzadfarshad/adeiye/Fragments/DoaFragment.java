@@ -36,6 +36,8 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.cuboid.cuboidcirclebutton.CuboidButton;
 import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
 import com.example.farzadfarshad.adeiye.Activity.Login;
+import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.TextInsideCircleButton;
+import com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton;
 import com.example.farzadfarshad.adeiye.Database.AyeDb;
 import com.example.farzadfarshad.adeiye.Database.DoaDb;
 import com.example.farzadfarshad.adeiye.DialogCustom;
@@ -113,6 +115,12 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
 
     @BindView(R.id.include_player)
     View include_player;
+
+    @BindView(R.id.bmb)
+    BoomMenuButton boomMenuButton;
+
+    @BindView(R.id.bmb_ziarart)
+    BoomMenuButton bmb_ziarart;
 
     DialogCustom dialogCustom;
 
@@ -276,6 +284,23 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
     }
 
     private void initView() {
+
+        for (int i = 0; i < boomMenuButton.getPiecePlaceEnum().pieceNumber(); i++) {
+            TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder()
+                    .normalImageRes(R.drawable.ic_sun)
+                    .normalText("Butter Doesn't fly!");
+            boomMenuButton.addBuilder(builder);
+        }
+
+
+        for (int i = 0; i < bmb_ziarart.getPiecePlaceEnum().pieceNumber(); i++) {
+            TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder()
+                    .normalImageRes(R.drawable.ic_sun)
+                    .normalText("Butter Doesn't fly!");
+            bmb_ziarart.addBuilder(builder);
+        }
+
+
         sharedPreferencesTools = new SharedPreferencesTools(getActivity().getBaseContext());
         setZekrRooz();
 
@@ -289,21 +314,19 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
 
-                for (int i = 0; i <=  10; i++) {
+                for (int i = 0; i <= 10; i++) {
                     doatop[i] = horizontal.getTop() + i;
                 }
 
-                for (int i = 0; i <=  10; i++) {
-                    include_playertop[i] = include_player.getTop()+ i;
+                for (int i = 0; i <= 10; i++) {
+                    include_playertop[i] = include_player.getTop() + i;
                 }
 
-                for (int i = 0; i <=  10; i++) {
+                for (int i = 0; i <= 10; i++) {
                     horizontal_ziarattop[i] = horizontal_ziarat.getTop() + i;
                 }
             }
         }, 400);
-
-
 
 
         scrollview.setOnScrollChangeListener(new View.OnScrollChangeListener() {
@@ -326,7 +349,7 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
                         ((MainActivity) getActivity()).setTitleToolbar("ziarat");
                         tag = false;
                         return;
-                    }else
+                    } else
                         tag = true;
                 }
 

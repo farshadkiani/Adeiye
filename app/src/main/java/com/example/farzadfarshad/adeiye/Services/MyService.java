@@ -21,10 +21,10 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         //TODO do something useful
-        /*PowerManager pm = (PowerManager) getApplicationContext().getSystemService(Context.POWER_SERVICE);
+        PowerManager pm = (PowerManager) getApplicationContext().getSystemService(Context.POWER_SERVICE);
         PowerManager.WakeLock wakeLock = pm.newWakeLock((PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP), "TAG");
         wakeLock.acquire();
-        Toast.makeText(this, "salam farshad", Toast.LENGTH_SHORT).show();*/
+//        Toast.makeText(this, "salam farshad", Toast.LENGTH_SHORT).show();
 
 
         alarm.SetAlarm(this);

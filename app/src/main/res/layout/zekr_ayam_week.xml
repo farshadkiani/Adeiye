@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card_view2"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="16dp"
-    android:background="@color/colorGreen"
-    android:orientation="vertical">
+    android:layout_marginTop="8dp"
+    card_view:cardCornerRadius="4dp">
 
-    <TextView
+    <!--<TextView
         android:id="@+id/zekr_rooz_txt"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -19,11 +20,14 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorAccent" />-->
+
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/colorGreen">
 
         <ImageView
             android:layout_width="100dp"
@@ -54,4 +58,4 @@
     </RelativeLayout>
 
 
-</LinearLayout>
+</android.support.v7.widget.CardView>

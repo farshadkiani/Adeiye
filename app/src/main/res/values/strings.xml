@@ -576,4 +576,10 @@
     <string name="screen_down_text">Please hold your phone horizontally and toward upside so that it\'s compass could work. Can\'t determine the direction of the north accurately now.</string>
     <string name="no_location_yet">Please wait. Detecting your location...\nOr you can select your city in the Settings.</string>
 
+
+    //font for customtextview
+    <string name="bkoodk">bkoodk</string>
+    <string name="arial_regular">arial_regular</string>
+    <string name="bnazanin">bnazanin</string>
+
 </resources>

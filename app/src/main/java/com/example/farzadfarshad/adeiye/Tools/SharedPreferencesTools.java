@@ -15,6 +15,9 @@ public class SharedPreferencesTools {
     public static String COLOR_AROUND = "Color_Around";
     public static String COLOR_APP = "Color_App";
     public static String NOTIFICATION_APP = "NOTIFICATION_App";
+    public static String SOB = "Sob";
+    public static String ZOHR = "Zohr";
+    public static String ASR = "Asr";
 
     public SharedPreferencesTools(Context context) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -47,5 +50,35 @@ public class SharedPreferencesTools {
 
     public boolean getNotificationApp() {
         return sharedpreferences.getBoolean(NOTIFICATION_APP, false);
+    }
+
+    public void setSobAzan(boolean sob) {
+        editor.putBoolean(SOB, sob);
+        editor.commit();
+    }
+
+    public boolean getSOB() {
+        return sharedpreferences.getBoolean(SOB, false);
+    }
+
+
+    public void setZohrAzan(boolean zohr) {
+        editor.putBoolean(ZOHR, zohr);
+        editor.commit();
+    }
+
+    public boolean getZohr() {
+        return sharedpreferences.getBoolean(ZOHR, false);
+    }
+
+
+    public void setAsrAzan(boolean asr) {
+        editor.putBoolean(ASR, asr);
+        editor.commit();
+    }
+
+
+    public boolean getAsr() {
+        return sharedpreferences.getBoolean(ASR, false);
     }
 }

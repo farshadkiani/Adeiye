@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.farzadfarshad.adeiye.Fragments.DoaFragment">
 
+
     <ScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
@@ -22,11 +23,61 @@
                 android:layout_height="200dp"
                 android:src="@drawable/placeholder" />
 
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorGreen">
+
+                   <!-- <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:text="دعاها"
+                        android:textColor="@color/White" />-->
+                    <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/White"
+                        android:textSize="26sp"
+                        app:fontName="bnazanin"
+                        app:moveImage="true"
+                        android:text="دعاها" />
+
+                    <com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton
+                        android:id="@+id/bmb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-8dp"
+                        android:layout_marginTop="-15dp"
+                        app:bmb_buttonEnum="textInsideCircle"
+                        app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
+                        app:bmb_normalColor="@color/colorGreen"
+                        app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
+                        app:bmb_shadowColor="@color/White">
+
+
+                    </com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
             <HorizontalScrollView
                 android:id="@+id/horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="4dp"
                 android:scrollbars="none">
 
                 <LinearLayout
@@ -126,9 +177,89 @@
 
             </HorizontalScrollView>
 
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view2"
+                android:layout_width="202dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorGreen">
+
+
+
+                    <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
+                        android:id="@+id/zekr_rooz_txt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/White"
+                        android:textSize="26sp"
+                        app:fontName="bnazanin"
+                        android:text="ذکر روز" />
+
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
             <include
                 android:id="@+id/include_player"
                 layout="@layout/zekr_ayam_week" />
+
+            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view3"
+                android:layout_width="206dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                card_view:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorGreen">
+
+                    <!--<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:text="زیارات"
+                        android:textColor="@color/White" />-->
+
+                    <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/White"
+                        android:textSize="26sp"
+                        app:fontName="bnazanin"
+                        android:text="زیارات" />
+
+                    <com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton
+                        android:id="@+id/bmb_ziarart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="-8dp"
+                        android:layout_marginTop="-15dp"
+                        app:bmb_buttonEnum="textInsideCircle"
+                        app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
+                        app:bmb_normalColor="@color/colorGreen"
+                        app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
+                        app:bmb_shadowColor="@color/White">
+
+
+                    </com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton>
+                </RelativeLayout>
+
+            </android.support.v7.widget.CardView>
+
+
 
 
             <HorizontalScrollView
@@ -393,9 +524,16 @@
             <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                app:fontName="bnazanin"
                 android:text="@string/slamafarshad" />
+
+
         </LinearLayout>
 
+
     </ScrollView>
+
 
 </FrameLayout>

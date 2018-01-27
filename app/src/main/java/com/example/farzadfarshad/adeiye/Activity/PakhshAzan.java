@@ -13,7 +13,9 @@ import com.activeandroid.query.Select;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Services.MyService;
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
@@ -35,11 +37,14 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
 
     String[] splitted_time_azan;
 
+    SharedPreferencesTools sharedPreferencesTools;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pakhsh_azan);
         ButterKnife.bind(this);
+        sharedPreferencesTools = new SharedPreferencesTools(this);
 
         sabt_txt.setOnClickListener(this);
 
@@ -58,6 +63,7 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
 
     private void checkToStartServise() {
         if (sob_che.isChecked()) {
+            sharedPreferencesTools.setSobAzan(true);
             spitedAzanTime();
             callServie();
         }
@@ -68,8 +74,15 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
         Calendar calendar = Calendar.getInstance();
 
 
-        calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(splitted_time_azan[0]));
+        /*calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(splitted_time_azan[0]));
         calendar.set(Calendar.MINUTE, Integer.valueOf(splitted_time_azan[1]));
+        calendar.set(Calendar.SECOND, 0);*/
+
+
+        int minute = Integer.valueOf(giveTime().split(":")[1]);
+
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(giveTime().split(":")[0]));
+        calendar.set(Calendar.MINUTE, ++minute);
         calendar.set(Calendar.SECOND, 0);
 
 
@@ -105,8 +118,21 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
 
         List<OghatDb> oghatDbList = getAll(splitted[0]);
 
+
+        checkSobZohrAsr();
+
+
         splitted_time_azan = oghatDbList.get(0).getAsr().split(":");
 
+    }
+
+    private void checkSobZohrAsr() {
+
+    }
+
+    public String giveTime() {
+        DateFormat df = new SimpleDateFormat("HH:mm");
+        return df.format(Calendar.getInstance().getTime());
     }
 
 }

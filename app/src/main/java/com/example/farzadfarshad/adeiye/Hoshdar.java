@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
 import android.os.PowerManager;
 import android.os.SystemClock;
@@ -27,21 +28,25 @@ import java.util.List;
 
 public class Hoshdar extends BroadcastReceiver {
     public Context context;
-    MediaPlayer mediaPlayer;
+    MediaPlayer mediaPlayer  = new MediaPlayer();;
     AlarmManager am;
     PendingIntent pi;
+    int minute_app_adeiye = 59;
+    int hour = 13;
 
     @Override
     public void onReceive(Context context, Intent intent) {
         this.context = context;
         try {
-            PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
-            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
-            wl.acquire();
+           /* PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+//            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "");
+            PowerManager.WakeLock wl = pm.newWakeLock((PowerManager.PARTIAL_WAKE_LOCK |PowerManager.SCREEN_BRIGHT_WAKE_LOCK |PowerManager.SCREEN_DIM_WAKE_LOCK | PowerManager.FULL_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP | PowerManager.ON_AFTER_RELEASE), "TAG");
+            wl.acquire();*/
+//            wl.release();
             // Put here YOUR code.
             CheckForazan();
 
-            wl.release();
+
         } catch (Exception e) {
             Log.d("LogLog", e.toString());
             e.printStackTrace();
@@ -60,13 +65,23 @@ public class Hoshdar extends BroadcastReceiver {
         am.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(), 60000, pi);*/
 
         Toast.makeText(context, "salam farshad", Toast.LENGTH_SHORT).show();
+        playSong(context);
 
         final Calendar calendar = Calendar.getInstance();
 
+        if (minute_app_adeiye == 60) {
+            minute_app_adeiye = 0;
+            if (hour == 24)
+                hour = 0;
+            else
+                hour++;
+        }
 
 
-        calendar.set(Calendar.HOUR_OF_DAY , 20);
-        calendar.set(Calendar.MINUTE , 41);
+        int minute = Integer.valueOf(giveTime().split(":")[1]);
+
+        calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(giveTime().split(":")[0]));
+        calendar.set(Calendar.MINUTE, ++minute);
         calendar.set(Calendar.SECOND, 0);
 
 
@@ -76,8 +91,7 @@ public class Hoshdar extends BroadcastReceiver {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
 
-
-        am.setExact(AlarmManager.RTC_WAKEUP , calendar.getTimeInMillis() , pi);
+        am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
 
 //        am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
        /* am.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis()
@@ -93,6 +107,30 @@ public class Hoshdar extends BroadcastReceiver {
         /*alarmManager.setRepeating(AlarmManager.RTC, SystemClock.elapsedRealtime()
                 , 60 * 1000, pendingIntent);*/
 
+
+    }
+
+    private void playSong(Context context) {
+        try {
+            mediaPlayer.release();
+            mediaPlayer = new MediaPlayer();
+            if (mediaPlayer.isPlaying()) {
+                mediaPlayer.stop();
+                mediaPlayer.release();
+                mediaPlayer = new MediaPlayer();
+            }
+
+            AssetFileDescriptor descriptor = context.getAssets().openFd("curch.mp3");
+            mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
+            descriptor.close();
+
+            mediaPlayer.prepare();
+            mediaPlayer.setVolume(1f, 1f);
+            mediaPlayer.setLooping(false);
+            mediaPlayer.start();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
