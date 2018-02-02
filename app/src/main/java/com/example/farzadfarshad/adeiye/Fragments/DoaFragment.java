@@ -6,8 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.icu.util.ULocale;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -15,6 +17,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
@@ -38,6 +41,7 @@ import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
 import com.example.farzadfarshad.adeiye.Activity.Login;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.TextInsideCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton;
+import com.example.farzadfarshad.adeiye.CustomView.CustomTextView;
 import com.example.farzadfarshad.adeiye.Database.AyeDb;
 import com.example.farzadfarshad.adeiye.Database.DoaDb;
 import com.example.farzadfarshad.adeiye.DialogCustom;
@@ -81,7 +85,7 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
     CuboidButton komeil_btn;
 
     @BindView(R.id.zekr_txt)
-    TextView zekr_rooz_txt;
+    CustomTextView zekr_rooz_txt;
 
     @BindView(R.id.date)
     TextView date;
@@ -190,6 +194,7 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
         Glide.with(this).load("http://192.168.43.73/Adeiye/img/downloadtwo.png")
                 .thumbnail(0.5f)
                 .crossFade()
+                .placeholder(R.drawable.graphic)
                 .error(getResources().getDrawable(R.drawable.wall))
                 .into(day_img);
 
@@ -283,6 +288,7 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
         image_img.startAnimation(rotate);
     }
 
+
     private void initView() {
 
         for (int i = 0; i < boomMenuButton.getPiecePlaceEnum().pieceNumber(); i++) {
@@ -304,9 +310,9 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
         sharedPreferencesTools = new SharedPreferencesTools(getActivity().getBaseContext());
         setZekrRooz();
 
-        final int doatop[] = new int[12];
-        final int include_playertop[] = new int[12];
-        final int horizontal_ziarattop[] = new int[12];
+        final int doatop[] = new int[42];
+        final int include_playertop[] = new int[42];
+        final int horizontal_ziarattop[] = new int[42];
 
 
         final Handler handler = new Handler();
@@ -314,77 +320,78 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
             @Override
             public void run() {
 
-                for (int i = 0; i <= 10; i++) {
+                for (int i = 0; i <= 41; i++) {
                     doatop[i] = horizontal.getTop() + i;
                 }
 
-                for (int i = 0; i <= 10; i++) {
+                for (int i = 0; i <= 41; i++) {
                     include_playertop[i] = include_player.getTop() + i;
                 }
 
-                for (int i = 0; i <= 10; i++) {
+                for (int i = 0; i <= 41; i++) {
                     horizontal_ziarattop[i] = horizontal_ziarat.getTop() + i;
                 }
             }
         }, 400);
 
 
-        scrollview.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            scrollview.setOnScrollChangeListener(new View.OnScrollChangeListener() {
+                @Override
+                public void onScrollChange(View v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
 
-                for (int i = 0; i < doatop.length; i++) {
-                    if (doatop[i] == scrollY || doatop[i] == oldScrollY) {
+                    for (int i = 0; i < doatop.length; i++) {
+                        if (doatop[i] == scrollY || doatop[i] == oldScrollY) {
+                            ((MainActivity) getActivity()).setTitleToolbar("doa");
+                            tag = false;
+                            return;
+                        } else if (include_playertop[i] == scrollY || include_playertop[i] == oldScrollY) {
+                            ((MainActivity) getActivity()).setTitleToolbar("zekrrooz");
+                            tag = false;
+                            return;
+                        } else if (horizontal_ziarattop[i] == scrollY || horizontal_ziarattop[i] == oldScrollY) {
+                            ((MainActivity) getActivity()).setTitleToolbar("ziarat");
+                            tag = false;
+                            return;
+                        } else
+                            tag = true;
+                    }
+
+                    if (tag) {
+                        ((MainActivity) getActivity()).setTitleToolbar("adeiye");
+                        return;
+                    }
+
+
+
+                   /* int salam =  horizontal.getTop();
+                    int salam1 =  include_player.getTop();
+                    int salam2 =  horizontal_ziarat.getTop();
+
+                    if (horizontal.getTop() == oldScrollY || horizontal.getTop() == scrollY
+                            || horizontal.getTop() + faraj_btn.getHeight() / 2 == oldScrollY
+                            || horizontal.getTop() + faraj_btn.getHeight() / 2 == scrollY
+                            || -(horizontal.getTop()) == oldScrollY || -(horizontal.getTop()) == scrollY) {
                         Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
                         ((MainActivity) getActivity()).setTitleToolbar("doa");
-                        tag = false;
-                        return;
-                    } else if (include_playertop[i] == scrollY || include_playertop[i] == oldScrollY) {
+                    } else if (include_player.getTop() == oldScrollY || include_player.getTop() == scrollY
+                            || -(include_player.getTop()) == oldScrollY || -(include_player.getTop()) == scrollY) {
                         Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
                         ((MainActivity) getActivity()).setTitleToolbar("zekrrooz");
-                        tag = false;
-                        return;
-                    } else if (horizontal_ziarattop[i] == scrollY || horizontal_ziarattop[i] == oldScrollY) {
+                    } else if (horizontal_ziarat.getTop() == oldScrollY || horizontal_ziarat.getTop() == scrollY
+                            || horizontal_ziarat.getTop() + faraj_btn.getHeight() / 2 == oldScrollY
+                            || horizontal_ziarat.getTop() + faraj_btn.getHeight() / 2 == scrollY
+                            || -(horizontal_ziarat.getTop()) == oldScrollY || -(horizontal_ziarat.getTop()) == scrollY) {
                         Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
                         ((MainActivity) getActivity()).setTitleToolbar("ziarat");
-                        tag = false;
-                        return;
-                    } else
-                        tag = true;
+                    }*/
+
+
                 }
-
-                if (tag) {
-                    ((MainActivity) getActivity()).setTitleToolbar("adeiye");
-                    return;
-                }
+            });
+        }
 
 
-
-               /* int salam =  horizontal.getTop();
-                int salam1 =  include_player.getTop();
-                int salam2 =  horizontal_ziarat.getTop();
-
-                if (horizontal.getTop() == oldScrollY || horizontal.getTop() == scrollY
-                        || horizontal.getTop() + faraj_btn.getHeight() / 2 == oldScrollY
-                        || horizontal.getTop() + faraj_btn.getHeight() / 2 == scrollY
-                        || -(horizontal.getTop()) == oldScrollY || -(horizontal.getTop()) == scrollY) {
-                    Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
-                    ((MainActivity) getActivity()).setTitleToolbar("doa");
-                } else if (include_player.getTop() == oldScrollY || include_player.getTop() == scrollY
-                        || -(include_player.getTop()) == oldScrollY || -(include_player.getTop()) == scrollY) {
-                    Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
-                    ((MainActivity) getActivity()).setTitleToolbar("zekrrooz");
-                } else if (horizontal_ziarat.getTop() == oldScrollY || horizontal_ziarat.getTop() == scrollY
-                        || horizontal_ziarat.getTop() + faraj_btn.getHeight() / 2 == oldScrollY
-                        || horizontal_ziarat.getTop() + faraj_btn.getHeight() / 2 == scrollY
-                        || -(horizontal_ziarat.getTop()) == oldScrollY || -(horizontal_ziarat.getTop()) == scrollY) {
-                    Toast.makeText(getActivity(), "salam", Toast.LENGTH_SHORT).show();
-                    ((MainActivity) getActivity()).setTitleToolbar("ziarat");
-                }*/
-
-
-            }
-        });
     }
 
     private void setZekrRooz() {

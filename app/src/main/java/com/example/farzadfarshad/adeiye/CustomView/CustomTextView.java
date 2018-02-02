@@ -9,13 +9,10 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Gravity;
-import android.view.animation.TranslateAnimation;
 import android.widget.TextView;
-
 import com.example.farzadfarshad.adeiye.R;
 
 /**
@@ -32,6 +29,9 @@ public class CustomTextView extends TextView {
     boolean moveImage = true;
 
     Handler mHandler = new Handler();
+
+    float centerX;
+    float centerY;
 
     public CustomTextView(Context context) {
         super(context);
@@ -96,7 +96,7 @@ public class CustomTextView extends TextView {
         bitmap = Bitmap.createScaledBitmap(bitmap, 55, 80, true);
 
         left_Bitmap = -14f;
-        top_Bitampp = getHeight() / 2;
+        top_Bitampp = getHeight() / 2 + getY();
 
         setX(left_Bitmap);
         setY(top_Bitampp);
@@ -113,8 +113,12 @@ public class CustomTextView extends TextView {
 
         setText(getText());
 
+        top_Bitampp = this.getHeight()/4;
+//        top_Bitampp = this.getHeight()/5;
+
+
         if (moveImage)
-            canvas.drawBitmap(bitmap, left_Bitmap, getHeight() / 4, paint);
+            canvas.drawBitmap(bitmap, left_Bitmap, top_Bitampp, paint);
 
         mHandler.postDelayed(new Runnable() {
 
@@ -138,6 +142,8 @@ public class CustomTextView extends TextView {
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        centerX = w / 2;
+        centerY = h / 2 - getY();
         super.onSizeChanged(w, h, oldw, oldh);
     }
 }

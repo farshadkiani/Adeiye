@@ -26,27 +26,6 @@ import android.view.animation.LinearInterpolator;
 import android.widget.TextView;
 
 
-import android.animation.AnimatorSet;
-import android.animation.ArgbEvaluator;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Typeface;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Interpolator;
-import android.view.animation.LinearInterpolator;
-import android.widget.TextView;
-
 /**
  * Created by arsalan.chishti on 7/24/2016.
  */

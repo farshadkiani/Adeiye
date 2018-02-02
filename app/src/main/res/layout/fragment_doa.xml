@@ -1,6 +1,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.farzadfarshad.adeiye.Fragments.DoaFragment">
@@ -23,43 +24,46 @@
                 android:layout_height="200dp"
                 android:src="@drawable/placeholder" />
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView
                 android:id="@+id/card_view"
                 android:layout_width="198dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+                app:cardBackgroundColor="@color/colorGreen"
                 card_view:cardCornerRadius="4dp">
 
-                <RelativeLayout
+            <!--    <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@color/colorGreen">
+                    android:background="@color/colorGreen">-->
 
-                   <!-- <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:text="دعاها"
-                        android:textColor="@color/White" />-->
+                    <!-- <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_centerInParent="true"
+                         android:layout_gravity="center_horizontal"
+                         android:layout_marginTop="16dp"
+                         android:text="دعاها"
+                         android:textColor="@color/White" />-->
                     <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center_horizontal"
+                        android:gravity="center_vertical"
+                        android:text="دعاها"
                         android:textColor="@color/White"
                         android:textSize="26sp"
                         app:fontName="bnazanin"
-                        app:moveImage="true"
-                        android:text="دعاها" />
+                        app:moveImage="true" />
 
                     <com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton
                         android:id="@+id/bmb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="-8dp"
-                        android:layout_marginTop="-15dp"
+                        android:layout_marginTop="-16dp"
                         app:bmb_buttonEnum="textInsideCircle"
                         app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
                         app:bmb_normalColor="@color/colorGreen"
@@ -68,7 +72,7 @@
 
 
                     </com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton>
-                </RelativeLayout>
+                <!--</RelativeLayout>-->
 
             </android.support.v7.widget.CardView>
 
@@ -95,7 +99,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -110,7 +114,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -125,7 +129,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -139,7 +143,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -153,7 +157,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -167,7 +171,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -177,18 +181,20 @@
 
             </HorizontalScrollView>
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view2"
                 android:layout_width="202dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="8dp"
+                app:cardBackgroundColor="@color/colorGreen"
                 card_view:cardCornerRadius="4dp">
 
-                <RelativeLayout
+                <!--<RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@color/colorGreen">
-
+                    android:layout_height="match_parent"
+                    android:background="@color/colorGreen">-->
 
 
                     <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
@@ -197,12 +203,12 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center_horizontal"
+                        android:text="ذکر روز"
                         android:textColor="@color/White"
                         android:textSize="26sp"
-                        app:fontName="bnazanin"
-                        android:text="ذکر روز" />
+                        app:fontName="bnazanin" />
 
-                </RelativeLayout>
+                <!--</RelativeLayout>-->
 
             </android.support.v7.widget.CardView>
 
@@ -213,14 +219,16 @@
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/card_view3"
                 android:layout_width="206dp"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                card_view:cardBackgroundColor="@color/colorGreen"
                 android:layout_marginTop="8dp"
                 card_view:cardCornerRadius="4dp">
 
-                <RelativeLayout
+                <!--<RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@color/colorGreen">
+                    android:background="@color/colorGreen">-->
 
                     <!--<TextView
                         android:layout_width="wrap_content"
@@ -236,17 +244,17 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center_horizontal"
+                        android:text="زیارات"
                         android:textColor="@color/White"
                         android:textSize="26sp"
-                        app:fontName="bnazanin"
-                        android:text="زیارات" />
+                        app:fontName="bnazanin" />
 
                     <com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton
                         android:id="@+id/bmb_ziarart"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="-8dp"
-                        android:layout_marginTop="-15dp"
+                        android:layout_marginTop="-16dp"
                         app:bmb_buttonEnum="textInsideCircle"
                         app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
                         app:bmb_normalColor="@color/colorGreen"
@@ -255,11 +263,9 @@
 
 
                     </com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton>
-                </RelativeLayout>
+                <!--</RelativeLayout>-->
 
             </android.support.v7.widget.CardView>
-
-
 
 
             <HorizontalScrollView
@@ -285,7 +291,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -300,7 +306,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -315,7 +321,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -330,7 +336,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -340,79 +346,88 @@
 
             </HorizontalScrollView>
 
-            <LinearLayout
+          <!--  <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view4"
                 android:layout_width="match_parent"
-                android:layout_height="110dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:background="@color/colorGreen"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:weightSum="1">
-
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="100dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.5">
-
-                    <ImageView
-                        android:id="@+id/image_img"
-                        android:layout_width="100dp"
-                        android:layout_height="90dp"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/flowerrotate" />
-
-                    <TextView
-                        android:id="@+id/date_year_txt"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:textColor="@color/White"
-                        android:textSize="22sp" />
-
-                </RelativeLayout>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                card_view:cardCornerRadius="4dp">-->
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:orientation="vertical">
+                    android:layout_width="match_parent"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rectangle_main"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:weightSum="1">
 
-                    <TextView
-                        android:id="@+id/date"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
-                        android:layout_marginTop="16dp"
-                        android:textColor="@color/White"
-                        android:textSize="16sp" />
+                        android:layout_weight="0.5">
 
+                        <ImageView
+                            android:id="@+id/image_img"
+                            android:layout_width="100dp"
+                            android:layout_height="90dp"
+                            android:layout_centerInParent="true"
+                            android:background="@drawable/flowerrotate" />
 
-                    <TextView
-                        android:id="@+id/date_milady"
-                        android:layout_width="wrap_content"
+                        <TextView
+                            android:id="@+id/date_year_txt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:textColor="@color/White"
+                            android:textSize="22sp" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:textColor="@color/White"
-                        android:textSize="16sp" />
+                        android:layout_weight="0.5"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/date_month"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="8dp"
-                        android:textColor="@color/White"
-                        android:textSize="16sp" />
+                        <TextView
+                            android:id="@+id/date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="16dp"
+                            android:textColor="@color/White"
+                            android:textSize="16sp" />
+
+
+                        <TextView
+                            android:id="@+id/date_milady"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/White"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/date_month"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:textColor="@color/White"
+                            android:textSize="16sp" />
+
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
 
-
-            </LinearLayout>
+            <!--</android.support.v7.widget.CardView>-->
 
 
             <HorizontalScrollView
@@ -437,7 +452,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -452,7 +467,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -467,7 +482,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -482,7 +497,7 @@
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
-                        app:cub_border_radius="4dp"
+                        app:cub_border_radius="1dp"
                         app:cub_color="@color/colorPrimary"
                         app:cub_hover_color="@color/colorAccent"
                         app:cub_riple_effect="true" />
@@ -497,7 +512,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorGreen"
+                android:background="@drawable/rectangle_main"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -519,15 +534,6 @@
                     android:textSize="16sp" />
 
             </LinearLayout>
-
-
-            <com.example.farzadfarshad.adeiye.CustomView.CustomTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                app:fontName="bnazanin"
-                android:text="@string/slamafarshad" />
 
 
         </LinearLayout>

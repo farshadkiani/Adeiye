@@ -67,10 +67,10 @@
     <string name="amin">امین الله</string>
 
 
-    <string name="salavat">صلوات شمار</string>
+    <string name="salavat">صلوات</string>
     <string name="tasbihat">تسبیحات</string>
-    <string name="zekrayamhafte">ذکر ایام هفته</string>
-    <string name="sajdeshomar">سجده شمار</string>
+    <string name="zekrayamhafte">ایام هفته</string>
+    <string name="sajdeshomar">سجده</string>
 
 
     <string name="context_menu">Context menu</string>

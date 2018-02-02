@@ -55,6 +55,9 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
+    @BindView(R.id.promos_img)
+    ImageView promos_img;
+
     @BindView(R.id.sliding_img)
     ImageView sliding_img;
 
@@ -291,6 +294,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         PopupWindow popup = new PopupWindow(MainActivity.this);
         View layout = getLayoutInflater().inflate(R.layout.popup_content, null);
 
+
         popup.setContentView(layout);
         // Set content width and height
         popup.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
@@ -301,6 +305,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Show anchored to button
         popup.setBackgroundDrawable(new BitmapDrawable());
         popup.showAsDropDown(anchorView);
+
+
 
         TextView tvCaption = (TextView) layout.findViewById(R.id.tvCaption);
         tvCaption.setOnClickListener(new View.OnClickListener() {
@@ -536,6 +542,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.sliding_img:
                 drawer.openDrawer(Gravity.RIGHT);
+                break;
+            case R.id.promos_img:
                 break;
         }
     }
