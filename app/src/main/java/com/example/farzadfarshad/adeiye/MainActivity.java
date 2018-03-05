@@ -39,6 +39,7 @@ import com.example.farzadfarshad.adeiye.Activity.CityAzanActivity;
 import com.example.farzadfarshad.adeiye.Activity.Gheblenama;
 import com.example.farzadfarshad.adeiye.Activity.Login;
 import com.example.farzadfarshad.adeiye.Activity.QiblaActivity;
+import com.example.farzadfarshad.adeiye.Activity.SettingActivity;
 import com.example.farzadfarshad.adeiye.Activity.noteActivity;
 import com.example.farzadfarshad.adeiye.Fragments.DoaFragment;
 import com.example.farzadfarshad.adeiye.Services.MyService;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
 
-    private ViewFlipper mViewFlipper;
+
 
 
     Toolbar toolbar;
@@ -91,8 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     // toolbar titles respected to selected nav menu item
     private String[] activityTitles;
 
-    // flag to load home fragment when user presses back key
-    private boolean shouldLoadHomeFragOnBackPress = true;
+
     private Handler mHandler;
 
     public SharedPreferencesTools sharedPreferencesTools;
@@ -194,10 +194,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
 
-        mViewFlipper = (ViewFlipper) navHeader.findViewById(R.id.view_flipper);
-        mViewFlipper.setAutoStart(true);
-        mViewFlipper.setFlipInterval(5000);
-        mViewFlipper.startFlipping();
 
 
         // load nav menu header data
@@ -321,7 +317,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvCaption1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, ChangeLineActivtiy.class);
+                Intent intent = new Intent(MainActivity.this, ChangeColorActivity.class);
                 startActivity(intent);
             }
         });
@@ -334,8 +330,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, QiblaActivity.class);
                 startActivity(intent);*/
 
-                Intent intent = new Intent(MainActivity.this, CircleActivity.class);
+                Intent intent = new Intent(MainActivity.this, ChangeLineActivtiy.class);
                 startActivity(intent);
+
+                /*Intent intent = new Intent(MainActivity.this, CircleActivity.class);
+                startActivity(intent);*/
 
             }
         });
@@ -401,7 +400,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // when switching between navigation menus
         // So using runnable, the fragment is loaded with cross fade effect
         // This effect can be seen in GMail app
-        Runnable mPendingRunnable = new Runnable() {
+     /*   Runnable mPendingRunnable = new Runnable() {
             @Override
             public void run() {
                 // update the main content by replacing fragments
@@ -412,19 +411,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 fragmentTransaction.replace(R.id.fragment_place, fragment, CURRENT_TAG);
                 fragmentTransaction.commitAllowingStateLoss();
             }
-        };
+        };*/
 
         // If mPendingRunnable is not null, then add to the message queue
-        if (mPendingRunnable != null) {
+      /*  if (mPendingRunnable != null) {
             mHandler.post(mPendingRunnable);
-        }
+        }*/
 
 
         //Closing drawer on item click
         drawer.closeDrawers();
 
-        // refresh toolbar menu
-        invalidateOptionsMenu();
     }
 
 
@@ -446,11 +443,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 // notifications fragment
                 DoaFragment notificationsFragment = new DoaFragment();
                 return notificationsFragment;
-/*
             case 4:
                 // settings fragment
-                DoaFragment settingsFragment = new DoaFragment();
-                return settingsFragment;*/
+                Intent  intent = new Intent(getBaseContext(), SettingActivity.class);
+                startActivity(intent);
+                return null;
             default:
                 return new DoaFragment();
         }
@@ -487,9 +484,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         navItemIndex = 1;
                         CURRENT_TAG = TAG_PHOTOS;
                         break;
-                    case R.id.nav_movies:
+                    case R.id.nav_setting:
                         navItemIndex = 2;
-                        CURRENT_TAG = TAG_MOVIES;
+                        CURRENT_TAG = TAG_SETTINGS;
+                        startActivity(new Intent(MainActivity.this, SettingActivity.class));
+                        drawer.closeDrawers();
                         break;
                     case R.id.nav_notifications:
                         navItemIndex = 3;

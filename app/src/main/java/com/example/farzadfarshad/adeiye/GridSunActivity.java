@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.farzadfarshad.adeiye.Adapter.SunGrideAdapter;
@@ -25,14 +27,23 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class GridSunActivity extends AppCompatActivity {
+public class GridSunActivity extends AppCompatActivity implements View.OnClickListener {
 
     Toolbar toolbar;
+
+
+    @BindView(R.id.play_img)
+    ImageView play_img;
+
+    @BindView(R.id.back_img)
+    ImageView back_img;
 
     private final String android_version_names[] = {
             "Donut",
@@ -66,7 +77,7 @@ public class GridSunActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_sun);
-
+        ButterKnife.bind(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -75,6 +86,7 @@ public class GridSunActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.card_recycler_view);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 2);
@@ -91,6 +103,8 @@ public class GridSunActivity extends AppCompatActivity {
             }
         });
 
+        play_img.setVisibility(View.GONE);
+        back_img.setOnClickListener(this);
 
     }
 
@@ -181,4 +195,12 @@ public class GridSunActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.back_img:
+                onBackPressed();
+                break;
+        }
+    }
 }

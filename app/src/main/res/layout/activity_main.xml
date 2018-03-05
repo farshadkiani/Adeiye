@@ -69,6 +69,7 @@
                 android:src="@drawable/pray"
                 android:tint="@color/colorGreen" />
 
+
             <ImageView
                 android:id="@+id/promos_img"
                 android:layout_width="0dp"

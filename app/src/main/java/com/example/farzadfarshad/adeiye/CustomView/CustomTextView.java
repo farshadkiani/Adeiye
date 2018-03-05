@@ -71,6 +71,9 @@ public class CustomTextView extends TextView {
             case 3:
                 fontName = R.string.bnazanin;
                 break;
+            case 4:
+                fontName = R.string.irannastealiq;
+                break;
             default:
                 fontName = R.string.bkoodk;
                 break;
@@ -116,9 +119,14 @@ public class CustomTextView extends TextView {
         top_Bitampp = this.getHeight()/4;
 //        top_Bitampp = this.getHeight()/5;
 
+        int viewWidthHalf = this.getMeasuredWidth()/2;
+        int viewHeightHalf = this.getMeasuredHeight()/2;
+
+
 
         if (moveImage)
-            canvas.drawBitmap(bitmap, left_Bitmap, top_Bitampp, paint);
+//            canvas.drawBitmap(bitmap, left_Bitmap, top_Bitampp, paint);
+            canvas.drawBitmap(bitmap, left_Bitmap, viewHeightHalf - 20 , paint);
 
         mHandler.postDelayed(new Runnable() {
 

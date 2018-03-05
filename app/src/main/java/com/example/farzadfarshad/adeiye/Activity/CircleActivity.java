@@ -21,6 +21,5 @@ public class CircleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_circle);
         ButterKnife.bind(this);
 
-
     }
 }

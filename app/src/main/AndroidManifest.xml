@@ -113,7 +113,8 @@
             android:theme="@style/dialog" />
         <activity android:name=".Activity.noteActivity" />
         <activity android:name=".Activity.QiblaActivity" />
-        <activity android:name=".Activity.CircleActivity"></activity>
+        <activity android:name=".Activity.CircleActivity" />
+        <activity android:name=".Activity.SettingActivity"></activity>
     </application>
 
 </manifest>

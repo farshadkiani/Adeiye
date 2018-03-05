@@ -581,5 +581,10 @@
     <string name="bkoodk">bkoodk</string>
     <string name="arial_regular">arial_regular</string>
     <string name="bnazanin">bnazanin</string>
+    <string name="irannastealiq">IranNastaliq</string>
+
+    <string name="doa_ziarat_nav">دعاها و زیارات در برنامه هوشمند ادعیه</string>
+
+    <string name="show_landing_page">نمایش در صفحه اصلی</string>
 
 </resources>

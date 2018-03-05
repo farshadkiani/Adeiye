@@ -22,8 +22,10 @@ import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPI;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPIAzan;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -91,7 +93,7 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
 
     String[] SPINNERLIST_city;
 
-    String[] splitted;
+    String[] splitted = new String[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,12 +134,29 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void getDate() {
-        Calendar calendar = Calendar.getInstance();
+       /* Calendar calendar = Calendar.getInstance();
 
         SimpleDateFormat df = new SimpleDateFormat("DD MM yyyy");
-        String formattedDate = df.format(calendar.getTime());
+        String formattedDate = df.format(calendar.getTime());*/
+//        Date date = null; // your date
+//        Calendar cal = Calendar.getInstance();
+//        cal.setTime(date);
+      /*  int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        splitted = formattedDate.split("\\s+");
+        splitted[0] = String.valueOf(day);
+        splitted[1] = String.valueOf(month);
+        splitted[2] = String.valueOf(year);*/
+
+//        splitted = formattedDate.split("\\s+");
+
+        DateFormat dateFormat = new SimpleDateFormat("dd MM yyyy");
+        Date date = new Date();
+
+        splitted[0] = dateFormat.format(date).split("\\s+")[0];
+        splitted[1] = dateFormat.format(date).split("\\s+")[1];
+        splitted[2] = dateFormat.format(date).split("\\s+")[2];
     }
 
     private void setViewOghat() {
@@ -149,14 +168,19 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void setOghatKadr() {
-        sob_txt.setText("| " + getAll(splitted[0]).get(0).getFajr());
-        toolo_txt.setText("| " + getAll(splitted[0]).get(0).getSunrise());
-        zohr_txt.setText("| " + getAll(splitted[0]).get(0).getDhuhr());
-        asr_txt.setText("| " + getAll(splitted[0]).get(0).getAsr());
-        ghoroob_txt.setText("| " + getAll(splitted[0]).get(0).getSunset());
-        maghreb_txt.setText("| " + getAll(splitted[0]).get(0).getMaghreb());
-        esha_txt.setText("| " + getAll(splitted[0]).get(0).getIsha());
-        nimeshab_txt.setText(" " + getAll(splitted[0]).get(0).getMidnight());
+        try {
+            sob_txt.setText("| " + getAll(splitted[0]).get(0).getFajr());
+            toolo_txt.setText("| " + getAll(splitted[0]).get(0).getSunrise());
+            zohr_txt.setText("| " + getAll(splitted[0]).get(0).getDhuhr());
+            asr_txt.setText("| " + getAll(splitted[0]).get(0).getAsr());
+            ghoroob_txt.setText("| " + getAll(splitted[0]).get(0).getSunset());
+            maghreb_txt.setText("| " + getAll(splitted[0]).get(0).getMaghreb());
+            esha_txt.setText("| " + getAll(splitted[0]).get(0).getIsha());
+            nimeshab_txt.setText(" " + getAll(splitted[0]).get(0).getMidnight());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -302,7 +326,7 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
 
     private void getdata() {
         final ProgressDialog pDialog = new ProgressDialog(this);
-        pDialog.setMessage("Loading...");
+        pDialog.setMessage(getResources().getString(R.string.get_data));
         pDialog.show();
         ServerAPIAzan api = ServerAPIAzan.retrofit.create(ServerAPIAzan.class);
         api.downlloadAzan("calendarByCity?city=" + city_spn.getSelectedItem() + "&country=Iran&method=0&month=" + splitted[1]
@@ -324,7 +348,7 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
                                     oghatDb.isha = response.body().getData().get(i).getTimings().getIsha().split("\\s+")[0];
                                     oghatDb.imask = response.body().getData().get(i).getTimings().getImsak().split("\\s+")[0];
                                     oghatDb.midnight = response.body().getData().get(i).getTimings().getMidnight().split("\\s+")[0];
-                                    oghatDb.month = splitted[0];
+                                    oghatDb.month = splitted[1];
                                     oghatDb.day = response.body().getData().get(i).getDate().getReadable().split("\\s+")[0];
                                     oghatDb.province = String.valueOf(String.valueOf(ostan_spn.getSelectedItem()));
                                     oghatDb.city = String.valueOf(city_spn.getSelectedItem());

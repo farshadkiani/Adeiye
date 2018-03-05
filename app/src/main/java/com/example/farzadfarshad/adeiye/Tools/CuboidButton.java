@@ -87,7 +87,9 @@ public class CuboidButton extends TextView {
             fontStyle = properties.getString(com.cuboid.cuboidcirclebutton.R.styleable.MyCircleView_cub_fontstyle);
             if(fontStyle!=null)
             {
-                Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(), fontStyle);
+//                Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(), fontStyle);
+                Typeface typeFace = Typeface.createFromAsset(getContext().getAssets(),
+                        "Fonts/IranNastaliq.ttf");
                 setTypeface(typeFace);
             }
 

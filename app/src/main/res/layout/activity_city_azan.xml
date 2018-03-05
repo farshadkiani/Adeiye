@@ -55,7 +55,8 @@
         layout="@layout/oghat_sharei"
         tools:layout_editor_absoluteX="16dp"
         app:layout_constraintTop_toTopOf="@+id/save_btn"
-        android:layout_marginTop="88dp" />
+        android:layout_marginTop="88dp"
+        android:visibility="gone"/>
 
 
 

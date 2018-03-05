@@ -397,6 +397,7 @@
             <enum name="bkoodk" value="1" />
             <enum name="arial_regular" value="2" />
             <enum name="bnazanin" value="3" />
+            <enum name="irannastealiq" value="4" />
         </attr>
 
         <attr name="moveImage" format="boolean|reference"/>

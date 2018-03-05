@@ -1,6 +1,6 @@
 package com.example.farzadfarshad.adeiye.RetrofitManager;
 
-import com.example.farzadfarshad.adeiye.Model.UrlImage;
+import com.example.farzadfarshad.adeiye.Model.FirstWebService;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -14,8 +14,8 @@ import retrofit2.http.Url;
  */
 
 public interface ApiInterface {
-    @GET("get")
-    Call<UrlImage> getUrlImage();
+    @GET("api/daily")
+    Call<FirstWebService> getFirst();
 
 
     @GET

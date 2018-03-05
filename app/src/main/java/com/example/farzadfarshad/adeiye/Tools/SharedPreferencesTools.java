@@ -49,7 +49,7 @@ public class SharedPreferencesTools {
     }
 
     public boolean getNotificationApp() {
-        return sharedpreferences.getBoolean(NOTIFICATION_APP, false);
+        return sharedpreferences.getBoolean(NOTIFICATION_APP, true);
     }
 
     public void setSobAzan(boolean sob) {

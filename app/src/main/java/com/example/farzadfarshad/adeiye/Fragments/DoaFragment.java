@@ -1,27 +1,18 @@
 package com.example.farzadfarshad.adeiye.Fragments;
 
-import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.icu.util.ULocale;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -33,23 +24,20 @@ import com.activeandroid.query.Select;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.cuboid.cuboidcirclebutton.CuboidButton;
 import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
-import com.example.farzadfarshad.adeiye.Activity.Login;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.TextInsideCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton;
 import com.example.farzadfarshad.adeiye.CustomView.CustomTextView;
 import com.example.farzadfarshad.adeiye.Database.AyeDb;
-import com.example.farzadfarshad.adeiye.Database.DoaDb;
 import com.example.farzadfarshad.adeiye.DialogCustom;
 import com.example.farzadfarshad.adeiye.MainActivity;
 import com.example.farzadfarshad.adeiye.MapsActivity;
-import com.example.farzadfarshad.adeiye.Model.UrlImage;
+import com.example.farzadfarshad.adeiye.Model.FirstWebService;
 import com.example.farzadfarshad.adeiye.MyApplication;
 import com.example.farzadfarshad.adeiye.R;
+
 import com.example.farzadfarshad.adeiye.RetrofitManager.ApiClient;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ApiInterface;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
@@ -63,7 +51,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import retrofit.Call;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -96,11 +85,12 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.date_milady)
     TextView date_milady;
 
+    @BindView(R.id.aye_txt)
+    TextView aye_txt;
+
     @BindView(R.id.date_month)
     TextView date_month;
 
-    @BindView(R.id.titlehadis_txt)
-    TextView titlehadis_txt;
 
     @BindView(R.id.hsdis_txt)
     TextView hsdis_txt;
@@ -180,10 +170,14 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
         faraj_btn.setOnClickListener(this);
         komeil_btn.setOnClickListener(this);
 
+        final ProgressDialog pDialog = new ProgressDialog(getContext());
+        pDialog.setMessage(getResources().getString(R.string.get_data));
+        pDialog.show();
+
         initView();
 
 
-        ImageView day_img = (ImageView) view.findViewById(R.id.day_img);
+        final ImageView day_img = (ImageView) view.findViewById(R.id.day_img);
 
        /* Glide.with(this).load("http://farshad.hotelphp.ir/image/speech.png")
                 .thumbnail(0.5f)
@@ -199,34 +193,58 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
                 .into(day_img);
 
 
-        /*ApiInterface apiService =
+        ApiInterface apiService =
                 ApiClient.getClient().create(ApiInterface.class);
 
-        Call<UrlImage> call = apiService.getUrlImage();*/
-        /*call.enqueue(new Callback<UrlImage>() {
+        Call<FirstWebService> call = apiService.getFirst();
+        /*call.enqueue(new Callback<FirstWebService>() {
             @Override
-            public void onResponse(Call<UrlImage> call, Response<UrlImage> response) {
+            public void onResponse(Call<FirstWebService> call, Response<FirstWebService> response) {
 //                List<Movie> movies = response.body().getResults();
                 if (response.isSuccessful())
                     Toast.makeText(getContext(), response.body().getUrl(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
-            public void onFailure(Call<UrlImage> call, Throwable t) {
+            public void onFailure(Call<FirstWebService> call, Throwable t) {
                 // Log error here since request failed
 //                Log.e(TAG, t.toString());
                 Toast.makeText(getContext(), "failar", Toast.LENGTH_SHORT).show();
             }
         });*/
 
+        call.enqueue(new Callback<FirstWebService>() {
+            @Override
+            public void onResponse(Call<FirstWebService> call, retrofit2.Response<FirstWebService> response) {
+                pDialog.dismiss();
+                if (response.isSuccessful() &&
+                        Integer.valueOf(response.body().getStatus()) == 200) {
+                    Glide.with(getContext()).load(response.body().getContents().getImage())
+                            .thumbnail(0.5f)
+                            .crossFade()
+                            .placeholder(R.drawable.graphic)
+                            .error(getResources().getDrawable(R.drawable.wall))
+                            .into(day_img);
+
+                    hsdis_txt.setText(response.body().getContents().getHadis());
+
+                    aye_txt.setText(response.body().getContents().getAaye());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<FirstWebService> call, Throwable t) {
+                pDialog.dismiss();
+                Toast.makeText(getContext(), "failar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
         // Tag used to cancel the request
         String tag_json_arry = "json_array_req";
         //        String url = "https://api.androidhive.info/volley/person_array.json";
         String url = "http://192.168.43.73/get.php";
 
-        final ProgressDialog pDialog = new ProgressDialog(getContext());
-        pDialog.setMessage("Loading...");
-        pDialog.show();
 
         JsonArrayRequest req = new JsonArrayRequest(url,
                 new Response.Listener<JSONArray>() {

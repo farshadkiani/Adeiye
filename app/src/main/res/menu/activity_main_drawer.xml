@@ -8,30 +8,33 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/home"
             android:title="@string/nav_home" />
+        <!--android:icon="@drawable/info"-->
         <item
             android:id="@+id/nav_photos"
-            android:icon="@drawable/info"
+            android:icon="@android:drawable/ic_dialog_info"
             android:title="@string/nav_guide" />
+
+        <!--android:icon="@drawable/settinges"-->
         <item
-            android:id="@+id/nav_movies"
-            android:icon="@drawable/settinges"
+            android:id="@+id/nav_setting"
+            android:icon="@android:drawable/ic_menu_manage"
             android:title="@string/nav_setting" />
 
-
+        <!--android:icon="@drawable/notification"-->
         <item
             android:id="@+id/nav_notifications"
-            android:icon="@drawable/notification"
+            android:icon="@android:drawable/stat_notify_chat"
             android:title="@string/nav_notifications" />
 
         <item
             android:id="@+id/nav_azan"
-            android:icon="@drawable/azanmosque"
+            android:icon="@drawable/mosque"
             android:title="@string/nav_azan" />
 
-
+        <!--android:icon="@drawable/mosquelocation"-->
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/mosquelocation"
+            android:icon="@android:drawable/ic_dialog_map"
             android:title="@string/nav_mosque" />
     </group>
 
