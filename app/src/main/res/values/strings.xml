@@ -7,9 +7,19 @@
 
     <string name="get_data">در حال گرفتن اطلاعات</string>
 
-    <string name="doa_faraj">دعای فرج</string>
+    <string name="doa_faraj">فرج</string>
+    <string name="doa_ahd">عهد</string>
+    <string name="doa_komeil">کمیل</string>
+    <string name="doa_zaman">زمان</string>
+    <string name="doa_komeli">کمیل</string>
+    <string name="doa_jooshan">جوشن کبیر</string>
+    <string name="tavasol">توسل</string>
+    <string name="doa_nodbe">ندبه</string>
+    <string name="doa_roozejome">روز جمعه</string>
+    <string name="mashlol">مشلول</string>
+    <string name="doa_salamati_emam_zaman">سلامتی امام زمان</string>
 
-    <string name="add_favorite_list">دعای مورد نظر به لیست علاقه مندی اضافه شد</string>
+    <string name="add_favorite_list">لیست علاقه مندی ها</string>
 
     <string name="zekr_sunday">یا ذالجلال والاکرام</string>
     <string name="zekr_saturday">یا رب العالمین</string>
@@ -586,5 +596,12 @@
     <string name="doa_ziarat_nav">دعاها و زیارات در برنامه هوشمند ادعیه</string>
 
     <string name="show_landing_page">نمایش در صفحه اصلی</string>
+
+
+    <string name="download">دانلود</string>
+    <string name="download_file">دانلود دعای فرج</string>
+    <string name="serch_movie">فیلم مورد نظر خود را جستجو کنید</string>
+    <string name="take_permission">برای استفاده از این ویژگی نیاز به این قبول کردن این اجازه دسترسی داریم</string>
+    <string name="download_file_doa">در حال دانلود فایل لطفا صبر نمایید...</string>
 
 </resources>

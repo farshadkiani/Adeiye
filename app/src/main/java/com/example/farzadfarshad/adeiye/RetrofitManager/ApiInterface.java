@@ -1,6 +1,7 @@
 package com.example.farzadfarshad.adeiye.RetrofitManager;
 
 import com.example.farzadfarshad.adeiye.Model.FirstWebService;
+import com.example.farzadfarshad.adeiye.Model.MovieModel;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -20,5 +21,10 @@ public interface ApiInterface {
 
     @GET
     Call<ResponseBody> downlload(@Url String fileUrl);
+
+
+    @GET("api/movies")
+    Call<MovieModel> getMovies();
+
 
 }

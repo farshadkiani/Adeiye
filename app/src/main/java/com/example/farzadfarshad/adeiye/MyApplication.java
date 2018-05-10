@@ -6,23 +6,18 @@ package com.example.farzadfarshad.adeiye;
 
 import android.app.Application;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
 
 import com.activeandroid.ActiveAndroid;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
-import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.bumptech.glide.Glide;
+
 import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.decode.BaseImageDecoder;
-import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
+
+import javax.inject.Inject;
 
 public class MyApplication extends Application {
 
@@ -33,6 +28,9 @@ public class MyApplication extends Application {
     private RequestQueue mRequestQueue;
     private ImageLoader mImageLoader;
 
+    @Inject
+    public Glide glide;
+
     private static MyApplication mInstance;
 
     @Override
@@ -40,7 +38,6 @@ public class MyApplication extends Application {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
-
 
 
     @Override
@@ -51,6 +48,15 @@ public class MyApplication extends Application {
 
         ActiveAndroid.initialize(this);
 
+        DaggerComponent component = DaggerDaggerComponent.builder()
+                .contextModule(new ContextModule(this))
+                .build();
+
+        component.injectMyApplication(this);
+
+
+
+//        glide = component.getGlide();
 
     }
 
@@ -91,5 +97,9 @@ public class MyApplication extends Application {
         if (mRequestQueue != null) {
             mRequestQueue.cancelAll(tag);
         }
+    }
+
+    public Glide getGlide(){
+        return glide;
     }
 }

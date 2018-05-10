@@ -95,7 +95,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="دعای عهد"
+                        android:text="@string/doa_ahd"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -110,7 +110,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="دعای فرج"
+                        android:text="@string/doa_faraj"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -125,7 +125,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="دعای کمیل"
+                        android:text="@string/doa_komeil"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -139,7 +139,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="دعای زمان"
+                        android:text="@string/doa_zaman"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -153,7 +153,7 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="دعای "
+                        android:text="@string/doa_jooshan"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -167,7 +167,63 @@
                         android:layout_height="80dp"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:text="No Border"
+                        android:text="@string/tavasol"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="1dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/doa_nodbe"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="1dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/doa_roozejome"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="1dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/mashlol"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:cub_border_color="@color/colorAccent"
+                        app:cub_border_radius="1dp"
+                        app:cub_color="@color/colorPrimary"
+                        app:cub_hover_color="@color/colorAccent"
+                        app:cub_riple_effect="true" />
+
+                    <com.cuboid.cuboidcirclebutton.CuboidButton
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:text="@string/doa_salamati_emam_zaman"
                         android:textColor="@android:color/white"
                         android:textSize="16sp"
                         app:cub_border_color="@color/colorAccent"
@@ -265,9 +321,9 @@
                     android:layout_marginLeft="-8dp"
                     android:layout_marginTop="-16dp"
                     app:bmb_buttonEnum="textInsideCircle"
-                    app:bmb_buttonPlaceEnum="buttonPlace_sc_9_1"
+                    app:bmb_buttonPlaceEnum="buttonPlace_sc_4_1"
                     app:bmb_normalColor="@color/colorGreen"
-                    app:bmb_piecePlaceEnum="piecePlace_dot_9_1"
+                    app:bmb_piecePlaceEnum="piecePlace_dot_4_1"
                     app:bmb_shadowColor="@color/White">
 
 
@@ -680,6 +736,7 @@
 
 
             <LinearLayout
+                android:id="@+id/oghat_linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -698,6 +755,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="8dp"
+                        android:textColor="@color/White"
                         android:gravity="right"
                         android:text="افق کرج" />
 
@@ -707,6 +765,7 @@
                         android:layout_height="20dp"
                         android:layout_alignParentLeft="true"
                         android:layout_centerInParent="true"
+                        android:tint="@color/White"
                         android:src="@drawable/speaker" />
 
                     <TextView
@@ -714,14 +773,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:textColor="@color/White"
                         android:layout_marginLeft="8dp"
                         android:layout_toRightOf="@+id/image_azan"
                         android:text="پخش اذان" />
 
-                    <TextView
+                  <!--  <TextView
                         android:id="@+id/show_main_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/White"
                         android:layout_centerHorizontal="true"
                         android:layout_centerInParent="true"
                         android:text="@string/show_landing_page" />
@@ -732,7 +793,8 @@
                         android:layout_centerHorizontal="true"
                         android:layout_centerInParent="true"
                         android:layout_centerVertical="true"
-                        android:layout_toLeftOf="@+id/show_main_txt" />
+                        android:buttonTint="@color/White"
+                        android:layout_toLeftOf="@+id/show_main_txt" />-->
 
 
                 </RelativeLayout>
@@ -741,7 +803,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:layout_marginTop="8dp"
-                    android:background="@color/colorGreen" />
+                    android:background="@color/White" />
 
 
                 <LinearLayout
@@ -761,12 +823,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="نیمه شب " />
 
                         <TextView
                             android:id="@+id/nimeshab_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="5:47" />
 
@@ -781,12 +845,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="عشا  |" />
 
                         <TextView
                             android:id="@+id/esha_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="|  5:47" />
 
@@ -801,12 +867,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="مغرب  |" />
 
                         <TextView
                             android:id="@+id/maghreb_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="|  5:47" />
 
@@ -821,12 +889,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="غروب  |" />
 
                         <TextView
                             android:id="@+id/ghoroob_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="|  5:47" />
 
@@ -841,12 +911,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="عصر  |" />
 
                         <TextView
                             android:id="@+id/asr_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="|  5:47" />
 
@@ -861,12 +933,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="ظهر  |" />
 
                         <TextView
                             android:id="@+id/zohr_txt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:layout_marginTop="2dp"
                             android:text="|  5:47" />
 
@@ -881,6 +955,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="طلوع  |" />
 
                         <TextView
@@ -888,6 +963,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
+                            android:textColor="@color/White"
                             android:text="|  5:47" />
 
                     </LinearLayout>
@@ -901,6 +977,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="@color/White"
                             android:text="صبح  |" />
 
                         <TextView
@@ -908,6 +985,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
+                            android:textColor="@color/White"
                             android:text="|  5:47" />
 
                     </LinearLayout>

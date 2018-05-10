@@ -29,9 +29,8 @@
             android:alpha="0.3"
             android:background="@drawable/placeholder" />-->
 
-        <fragment
+        <FrameLayout
             android:id="@+id/fragment_place"
-            android:name="com.example.farzadfarshad.adeiye.Fragments.DoaFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/layout_bottom_bar"
@@ -71,7 +70,7 @@
 
 
             <ImageView
-                android:id="@+id/promos_img"
+                android:id="@+id/film_img"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

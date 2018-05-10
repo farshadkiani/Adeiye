@@ -7,7 +7,9 @@ import android.os.IBinder;
 import android.os.PowerManager;
 import android.widget.Toast;
 
+import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
 import com.example.farzadfarshad.adeiye.Hoshdar;
+import com.example.farzadfarshad.adeiye.PaskheAzan.PakhshAzanActiviy;
 import com.example.farzadfarshad.adeiye.SplashActivity;
 
 /**
@@ -36,5 +38,13 @@ public class MyService extends Service {
     public IBinder onBind(Intent intent) {
         //TODO for communication return IBinder implementation
         return null;
+    }
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        Intent intent = new Intent(this, PakhshAzanActiviy.class);
+        startActivity(intent);
     }
 }

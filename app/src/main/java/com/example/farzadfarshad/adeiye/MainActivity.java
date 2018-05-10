@@ -1,18 +1,15 @@
 package com.example.farzadfarshad.adeiye;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
+
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Handler;
-import android.os.SystemClock;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
@@ -29,25 +26,17 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.ViewFlipper;
 
 import com.example.farzadfarshad.adeiye.Activity.ChangeColorActivity;
 import com.example.farzadfarshad.adeiye.Activity.ChangeLineActivtiy;
-import com.example.farzadfarshad.adeiye.Activity.CircleActivity;
 import com.example.farzadfarshad.adeiye.Activity.CityAzanActivity;
-import com.example.farzadfarshad.adeiye.Activity.Gheblenama;
-import com.example.farzadfarshad.adeiye.Activity.Login;
 import com.example.farzadfarshad.adeiye.Activity.QiblaActivity;
 import com.example.farzadfarshad.adeiye.Activity.SettingActivity;
-import com.example.farzadfarshad.adeiye.Activity.noteActivity;
 import com.example.farzadfarshad.adeiye.Fragments.DoaFragment;
-import com.example.farzadfarshad.adeiye.Services.MyService;
+import com.example.farzadfarshad.adeiye.Movie.MovieFragment;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
 import java.util.Calendar;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,16 +45,17 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
-    @BindView(R.id.promos_img)
-    ImageView promos_img;
+    @BindView(R.id.film_img)
+    ImageView film_img;
+
+    @BindView(R.id.adeiye_img)
+    ImageView adeiye_img;
 
     @BindView(R.id.sliding_img)
     ImageView sliding_img;
 
     @BindView(R.id.toolbar_title)
     TextView toolbar_title;
-
-
 
 
     Toolbar toolbar;
@@ -98,6 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public SharedPreferencesTools sharedPreferencesTools;
 
 
+    Fragment fragment;
+
+    FragmentTransaction fragmentTransaction;
+
+    android.support.v4.app.FragmentManager fragmentManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,6 +105,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sharedPreferencesTools = new SharedPreferencesTools(this);
 
         sliding_img.setOnClickListener(this);
+        adeiye_img.setOnClickListener(this);
+        film_img.setOnClickListener(this);
 
 
         final Calendar calendar = Calendar.getInstance();
@@ -192,8 +191,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
-
-
 
 
         // load nav menu header data
@@ -283,6 +280,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         imageView.startAnimation(rotate);
+
+
+        fragment = new DoaFragment();
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
+                android.R.anim.fade_out);
+        fragmentTransaction.replace(R.id.fragment_place, fragment, CURRENT_TAG);
+        fragmentTransaction.commit();
+
+
     }
 
 
@@ -303,8 +310,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         popup.showAsDropDown(anchorView);
 
 
-
-        TextView tvCaption = (TextView) layout.findViewById(R.id.tvCaption);
+       /* TextView tvCaption = (TextView) layout.findViewById(R.id.tvCaption);
         tvCaption.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -312,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
-
+*/
         TextView tvCaption1 = (TextView) layout.findViewById(R.id.tvCaption1);
         tvCaption1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -445,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return notificationsFragment;
             case 4:
                 // settings fragment
-                Intent  intent = new Intent(getBaseContext(), SettingActivity.class);
+                Intent intent = new Intent(getBaseContext(), SettingActivity.class);
                 startActivity(intent);
                 return null;
             default:
@@ -508,7 +514,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         return true;
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, Gheblenama.class));
+                        startActivity(new Intent(MainActivity.this, QiblaActivity.class));
                         drawer.closeDrawers();
                         return true;
                    /* case R.id.nav_privacy_policy:
@@ -542,7 +548,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.sliding_img:
                 drawer.openDrawer(Gravity.RIGHT);
                 break;
-            case R.id.promos_img:
+            case R.id.film_img:
+                /*MovieFragment fragment = new MovieFragment();
+                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
+                        android.R.anim.fade_out);
+                fragmentTransaction.replace(R.id.fragment_place, fragment, CURRENT_TAG);
+                fragmentTransaction.commit();
+                fragmentTransaction.addToBackStack(null);
+                film_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+                adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));*/
+
+                setFragment(new MovieFragment(), "film");
+                break;
+            case R.id.adeiye_img:
+               /* DoaFragment fragment1 = new DoaFragment();
+                FragmentTransaction fragmentTransaction1 = getSupportFragmentManager().beginTransaction();
+                fragmentTransaction1.setCustomAnimations(android.R.anim.fade_in,
+                        android.R.anim.fade_out);
+                fragmentTransaction1.replace(R.id.fragment_place, fragment1, CURRENT_TAG);
+                fragmentTransaction1.commit();
+                fragmentTransaction1.addToBackStack(null);
+                adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+                film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));*/
+                setFragment(new DoaFragment(), "main");
                 break;
         }
     }
@@ -551,12 +580,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onBackPressed() {
         if (drawer.isDrawerOpen(Gravity.RIGHT))
             drawer.closeDrawers();
-        else
+
+        else {
             super.onBackPressed();
+            setTintImage();
+        }
     }
 
-    public void setTitleToolbar(String tag){
-        switch (tag){
+    public void setTitleToolbar(String tag) {
+        switch (tag) {
 
             case "doa":
                 toolbar_title.setText("دعاها");
@@ -577,4 +609,65 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    public void setFragment(Fragment fragment, String tag) {
+        this.fragment = fragment;
+        fragmentManager = getSupportFragmentManager();
+        fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
+                android.R.anim.fade_out);
+        fragmentTransaction.replace(R.id.fragment_place, fragment);
+        fragmentTransaction.commit();
+        fragmentTransaction.addToBackStack(tag);
+        if (fragment instanceof DoaFragment) {
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        } else if (fragment instanceof MovieFragment) {
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        }
+
+    }
+
+    public void setTintImage() {
+
+        String check_stack = getCurrentFragment();
+
+        if (check_stack.equals("main") || check_stack.equals("null")) {
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        } else if (check_stack.equals("film")) {
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        } else if (check_stack.equals("nullexit")) {
+
+        }
+    }
+
+    private String getCurrentFragment() {
+//        android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+
+        String fragmentTag;
+
+        try {
+            if (fragmentManager != null)
+                if (fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1) != null)
+                    fragmentTag = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
+//        Fragment currentFragment = fragmentManager.findFragmentByTag(fragmentTag);
+                else
+                    fragmentTag = "null";
+            else
+                fragmentTag = "nullexit";
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            fragmentTag = "null";
+            fragmentManager = null;
+        }
+
+
+        return fragmentTag;
+    }
+
+
 }

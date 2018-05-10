@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_azan"
+    android:alpha="0.8"
+    tools:context="com.example.farzadfarshad.adeiye.PaskheAzan.PakhshAzanActiviy">
+
+    <ImageView
+        android:id="@+id/textView4"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginTop="72dp"
+        android:adjustViewBounds="false"
+        android:background="@drawable/background_azan_time"
+        android:cropToPadding="false"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:srcCompat="@drawable/azanmosque"
+        android:tint="@color/White"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:text="اذان صبح"
+        app:layout_constraintBottom_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textView4"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="@+id/textView4"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/White"
+        android:layout_marginEnd="8dp" />
+
+    <TextView
+        android:id="@+id/time_sob__txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:text="5:43"
+        android:textColor="@color/White"
+        app:layout_constraintBottom_toBottomOf="@+id/textView5"
+        app:layout_constraintLeft_toLeftOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="@+id/textView5"
+        android:layout_marginStart="8dp" />
+
+    <ImageView
+        android:id="@+id/stop_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:tint="@color/White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srcCompat="@drawable/quantum_ic_volume_off_grey600_36" />
+
+    <ImageView
+        android:id="@+id/play_azan_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:tint="@color/White"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/stop_img"
+        app:srcCompat="@drawable/quantum_ic_volume_up_grey600_36" />
+
+
+</android.support.constraint.ConstraintLayout>

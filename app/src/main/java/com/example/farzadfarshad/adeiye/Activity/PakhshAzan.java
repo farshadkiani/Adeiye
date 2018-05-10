@@ -114,7 +114,14 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
     private void callServie() {
         Calendar calendar = Calendar.getInstance();
 
+/*
+        calendar.set(Calendar.HOUR_OF_DAY, 13);
+        calendar.set(Calendar.MINUTE, 17);
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.DAY_OF_MONTH, 10);*/
 
+
+        //// TODO: 5/9/2018
         calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(splitted_time_azan[0]));
         calendar.set(Calendar.MINUTE, Integer.valueOf(splitted_time_azan[1]));
         calendar.set(Calendar.SECOND, 0);
@@ -152,7 +159,10 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
         month = cal.get(Calendar.MONTH);
         day = cal.get(Calendar.DAY_OF_MONTH);
 
+
         splitted[0] = String.valueOf(day);
+        if (splitted[0].length() == 1)
+            splitted[0] = "0" + splitted[0];
         splitted[1] = String.valueOf(month);
         splitted[2] = String.valueOf(year);
     }
@@ -170,7 +180,6 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
         getDate();
 
         oghatDbList = getAll(splitted[0]);
-
 
 
         getDateOghat();
@@ -215,7 +224,7 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
     private void setAfterCurrentDate(String check) {
         splitted[0] = String.valueOf(day++);
         oghatDbList = getAll(splitted[0]);
-        switch (check){
+        switch (check) {
             case "sob_after":
                 splitted_time_azan = oghatDbList.get(0).getImask().split(":");
                 break;

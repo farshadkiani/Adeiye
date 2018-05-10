@@ -5,24 +5,19 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.media.MediaPlayer;
-import android.os.PowerManager;
-import android.os.SystemClock;
 import android.util.Log;
-import android.view.WindowManager;
-import android.widget.Toast;
 
 
 import com.activeandroid.query.Select;
+import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.Model.CheckAzan;
 import com.example.farzadfarshad.adeiye.Services.MyService;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -58,6 +53,10 @@ public class Hoshdar extends BroadcastReceiver {
             wl.acquire();*/
 //            wl.release();
             // Put here YOUR code.
+
+
+
+
             CheckForazan();
 
 
@@ -80,10 +79,9 @@ public class Hoshdar extends BroadcastReceiver {
 
         this.context = context;
 
-        Toast.makeText(context, "salam farshad", Toast.LENGTH_SHORT).show();
-        playSong(context);
+//        playSong(context);
 
-        spitedAzanTime();
+//        spitedAzanTime();
 
         final Calendar calendar = Calendar.getInstance();
 
@@ -101,8 +99,12 @@ public class Hoshdar extends BroadcastReceiver {
         calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(giveTime().split(":")[0]));
         calendar.set(Calendar.MINUTE, ++minute);
         calendar.set(Calendar.SECOND, 0);*/
+       
 
-        calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(splitted_time_azan[0]));
+       
+       
+//// TODO: 5/10/2018  
+        /*calendar.set(Calendar.HOUR_OF_DAY, Integer.valueOf(splitted_time_azan[0]));
         calendar.set(Calendar.MINUTE, Integer.valueOf(splitted_time_azan[1]));
         calendar.set(Calendar.SECOND, 0);
         calendar.set(Calendar.DAY_OF_MONTH, day);
@@ -115,6 +117,9 @@ public class Hoshdar extends BroadcastReceiver {
 
 
         am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
+        */
+        
+        
 
 //        am.setExact(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pi);
        /* am.setRepeating(AlarmManager.RTC, calendar.getTimeInMillis()
@@ -132,30 +137,6 @@ public class Hoshdar extends BroadcastReceiver {
 
 
     }
-
-    private void playSong(Context context) {
-        try {
-            mediaPlayer.release();
-            mediaPlayer = new MediaPlayer();
-            if (mediaPlayer.isPlaying()) {
-                mediaPlayer.stop();
-                mediaPlayer.release();
-                mediaPlayer = new MediaPlayer();
-            }
-
-            AssetFileDescriptor descriptor = context.getAssets().openFd("azan.mp3");
-            mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
-            descriptor.close();
-
-            mediaPlayer.prepare();
-            mediaPlayer.setVolume(1f, 1f);
-            mediaPlayer.setLooping(false);
-            mediaPlayer.start();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
 
     public String giveDate() {
         Calendar cal = Calendar.getInstance();
@@ -212,6 +193,7 @@ public class Hoshdar extends BroadcastReceiver {
         splitted[0] = dateFormat.format(date).split("\\s+")[0];
         splitted[1] = dateFormat.format(date).split("\\s+")[1];
         splitted[2] = dateFormat.format(date).split("\\s+")[2];
+        day = Integer.valueOf(splitted[0]);
     }
 
     public void spitedAzanTime() {
@@ -261,7 +243,7 @@ public class Hoshdar extends BroadcastReceiver {
     }
 
     private void setAfterCurrentDate(String check) {
-        splitted[0] = String.valueOf(day++);
+        splitted[0] = String.valueOf(++day);
         oghatDbList = getAll(splitted[0]);
         switch (check) {
             case "sob_after":

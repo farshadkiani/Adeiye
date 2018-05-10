@@ -18,7 +18,7 @@ public interface ServerAPI {
 
     Retrofit retrofit =
             new Retrofit.Builder()
-                    .baseUrl("http://api.learn2crack.com/") // REMEMBER TO END with /
+                    .baseUrl("https://dl.dropboxusercontent.com/") // REMEMBER TO END with /
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
 }

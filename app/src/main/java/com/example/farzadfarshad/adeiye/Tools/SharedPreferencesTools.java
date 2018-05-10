@@ -18,6 +18,7 @@ public class SharedPreferencesTools {
     public static String SOB = "Sob";
     public static String ZOHR = "Zohr";
     public static String ASR = "Asr";
+    public static String SHOWOGHAT = "ShowOghat";
 
     public SharedPreferencesTools(Context context) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -80,5 +81,14 @@ public class SharedPreferencesTools {
 
     public boolean getAsr() {
         return sharedpreferences.getBoolean(ASR, false);
+    }
+
+    public void setShowOghat(boolean showghat) {
+        editor.putBoolean(SHOWOGHAT , showghat);
+        editor.commit();
+    }
+
+    public boolean getShowOghat() {
+        return sharedpreferences.getBoolean(SHOWOGHAT , false);
     }
 }

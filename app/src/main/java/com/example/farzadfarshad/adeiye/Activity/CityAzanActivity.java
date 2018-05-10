@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -21,6 +22,7 @@ import com.example.farzadfarshad.adeiye.Model.AzanModel.Example;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPI;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPIAzan;
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -89,11 +91,16 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.image_azan)
     ImageView image_azan;
 
+    @BindView(R.id.main_chb)
+    CheckBox main_chb;
+
     String[] SPINNERLIST;
 
     String[] SPINNERLIST_city;
 
     String[] splitted = new String[3];
+
+    SharedPreferencesTools sharedPreferencesTools;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,15 +108,23 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_city_azan);
 
         ButterKnife.bind(this);
+        sharedPreferencesTools = new SharedPreferencesTools(this);
         save_btn.setOnClickListener(this);
         back_img.setOnClickListener(this);
         image_azan.setOnClickListener(this);
         pakhsh_txt.setOnClickListener(this);
+        main_chb.setOnClickListener(this);
 
         initView();
     }
 
     private void initView() {
+
+        if (sharedPreferencesTools.getShowOghat())
+            main_chb.setChecked(true);
+        else
+            main_chb.setChecked(false);
+
         play_img.setVisibility(View.GONE);
         SPINNERLIST = getResources().getStringArray(R.array.province);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
@@ -315,6 +330,15 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
 
             case R.id.pakhsh_txt:
                 goToPakhshAzan();
+                break;
+
+            case R.id.main_chb:
+
+                if (main_chb.isChecked())
+                    sharedPreferencesTools.setShowOghat(true);
+                else
+                    sharedPreferencesTools.setShowOghat(false);
+
                 break;
         }
     }

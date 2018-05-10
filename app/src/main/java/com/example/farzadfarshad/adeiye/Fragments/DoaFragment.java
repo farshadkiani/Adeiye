@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +29,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.bumptech.glide.Glide;
 import com.cuboid.cuboidcirclebutton.CuboidButton;
 import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
+import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.OnBMClickListener;
+import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.SimpleCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.TextInsideCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton;
 import com.example.farzadfarshad.adeiye.CustomView.CustomTextView;
@@ -115,6 +119,12 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
 
     @BindView(R.id.bmb_ziarart)
     BoomMenuButton bmb_ziarart;
+
+    @BindView(R.id.oghat_linear)
+    LinearLayout oghat_linear;
+
+    @BindView(R.id.card_view6)
+    CardView card_view6;
 
     DialogCustom dialogCustom;
 
@@ -309,19 +319,125 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
 
     private void initView() {
 
+        sharedPreferencesTools = new SharedPreferencesTools(getActivity().getBaseContext());
+
+       /* if (sharedPreferencesTools.getShowOghat()) {
+            oghat_linear.setVisibility(View.VISIBLE);
+            card_view6.setVisibility(View.VISIBLE);
+        } else {
+            oghat_linear.setVisibility(View.GONE);
+            card_view6.setVisibility(View.GONE);
+        }*/
+
+        checkShowOghat();
+
+
         for (int i = 0; i < boomMenuButton.getPiecePlaceEnum().pieceNumber(); i++) {
-            TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder()
-                    .normalImageRes(R.drawable.ic_sun)
-                    .normalText("Butter Doesn't fly!");
-            boomMenuButton.addBuilder(builder);
+            if (i == 0) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_ahd));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 1) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran).listener(new OnBMClickListener() {
+                    @Override
+                    public void onBoomButtonClick(int index) {
+                        dialogCustom = new DialogCustom(getActivity());
+                        dialogCustom.show();
+                        saveDoaFaraj();
+                    }
+                })
+                        .normalText(getResources().getString(R.string.doa_faraj));
+                boomMenuButton.addBuilder(builder);
+
+            } else if (i == 2) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_komeil));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 3) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_jooshan));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 4) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.tavasol));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 5) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_nodbe));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 6) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_roozejome));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 7) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.mashlol));
+                boomMenuButton.addBuilder(builder);
+            } else if (i == 8) {
+                TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder();
+                builder
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.doa_salamati_emam_zaman));
+                boomMenuButton.addBuilder(builder);
+            }
         }
+/*
+        for (int i = 0; i < boomMenuButton.getPiecePlaceEnum().pieceNumber(); i++) {
+            SimpleCircleButton.Builder builder = new SimpleCircleButton.Builder()
+                    .listener(new OnBMClickListener() {
+                        @Override
+                        public void onBoomButtonClick(int index) {
+                            // When the boom-button corresponding this builder is clicked.
+                            Toast.makeText(SimpleCircleButtonActivity.this, "Clicked " + index, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            boomMenuButton.addBuilder(builder);
+        }*/
 
 
         for (int i = 0; i < bmb_ziarart.getPiecePlaceEnum().pieceNumber(); i++) {
-            TextInsideCircleButton.Builder builder = new TextInsideCircleButton.Builder()
-                    .normalImageRes(R.drawable.ic_sun)
-                    .normalText("Butter Doesn't fly!");
-            bmb_ziarart.addBuilder(builder);
+            if (i == 0) {
+                TextInsideCircleButton.Builder builder1 = new TextInsideCircleButton.Builder();
+                builder1
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.ashoora));
+                bmb_ziarart.addBuilder(builder1);
+            } else if (i == 1) {
+                TextInsideCircleButton.Builder builder1 = new TextInsideCircleButton.Builder();
+                builder1
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.amin));
+                bmb_ziarart.addBuilder(builder1);
+            } else if (i == 2) {
+                TextInsideCircleButton.Builder builder1 = new TextInsideCircleButton.Builder();
+                builder1
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.vares));
+                bmb_ziarart.addBuilder(builder1);
+            } else if (i == 3) {
+                TextInsideCircleButton.Builder builder1 = new TextInsideCircleButton.Builder();
+                builder1
+                        .normalImageRes(R.drawable.quaran)
+                        .normalText(getResources().getString(R.string.aleyasin));
+                bmb_ziarart.addBuilder(builder1);
+            }
+
         }
 
 
@@ -584,6 +700,9 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onResume() {
         super.onResume();
+
+        checkShowOghat();
+
         if (!sharedPreferencesTools.getColorAround().equals(""))
             switch (sharedPreferencesTools.getColorAround()) {
                 case "red":
@@ -615,5 +734,18 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
                     faraj_btn.setCircle_color(ContextCompat.getColor(getActivity(), R.color.colorPrimary));
                     break;
             }
+    }
+
+
+    public void checkShowOghat() {
+
+        if (sharedPreferencesTools.getShowOghat()) {
+            oghat_linear.setVisibility(View.VISIBLE);
+            card_view6.setVisibility(View.VISIBLE);
+        } else {
+            oghat_linear.setVisibility(View.GONE);
+            card_view6.setVisibility(View.GONE);
+        }
+
     }
 }

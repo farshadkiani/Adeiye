@@ -27,7 +27,10 @@
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashActivity">
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,7 +117,9 @@
         <activity android:name=".Activity.noteActivity" />
         <activity android:name=".Activity.QiblaActivity" />
         <activity android:name=".Activity.CircleActivity" />
-        <activity android:name=".Activity.SettingActivity"></activity>
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Movie.MovieFilmActivity" />
+        <activity android:name=".PaskheAzan.PakhshAzanActiviy"></activity>
     </application>
 
 </manifest>
