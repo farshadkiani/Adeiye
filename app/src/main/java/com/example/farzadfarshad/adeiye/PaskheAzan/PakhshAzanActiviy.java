@@ -13,8 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.activeandroid.query.Select;
+import com.example.farzadfarshad.adeiye.ContextModule;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.Model.CheckAzan;
+import com.example.farzadfarshad.adeiye.Movie.DaggerMovieFragmentComponent;
+import com.example.farzadfarshad.adeiye.Movie.MovieFragmentComponent;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Services.MyService;
 
@@ -24,12 +27,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClickListener {
 
-
+    @Inject
     MediaPlayer mediaPlayer;
 
     @BindView(R.id.stop_img)
@@ -43,8 +48,6 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
 
 
     String[] splitted = new String[3];
-    int year;
-    int month;
     int day;
     List<OghatDb> oghatDbList;
     String[] splitted_time_azan_asr;
@@ -60,12 +63,17 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
 
         ButterKnife.bind(this);
 
+        PakhsheAzanComponent component = DaggerPakhsheAzanComponent.builder()
+                .contextModule(new ContextModule(this))
+                .build();
+
+        component.injectPakhsheAzan(this);
+
+        spitedAzanTime();
 
         initView();
 
         playSong(this);
-
-        spitedAzanTime();
 
 
         final Calendar calendar = Calendar.getInstance();
@@ -90,21 +98,21 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
         time_sob__txt.setText(oghatDbList.get(0).getFajr());
         stop_img.setOnClickListener(this);
         play_azan_img.setOnClickListener(this);
-        mediaPlayer = new MediaPlayer();
+//        mediaPlayer = new MediaPlayer();
     }
 
 
     private void playSong(Context context) {
         try {
-            mediaPlayer.release();
-            mediaPlayer = new MediaPlayer();
+//            mediaPlayer.release();
+//            mediaPlayer = new MediaPlayer();
             if (mediaPlayer.isPlaying()) {
                 return;
               /*  mediaPlayer.stop();
                 mediaPlayer.release();
                 mediaPlayer = new MediaPlayer();*/
             }
-
+            mediaPlayer.reset();
             AssetFileDescriptor descriptor = context.getAssets().openFd("azan.mp3");
             mediaPlayer.setDataSource(descriptor.getFileDescriptor(), descriptor.getStartOffset(), descriptor.getLength());
             descriptor.close();
@@ -123,13 +131,10 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
         if (v.getId() == R.id.stop_img) {
             if (mediaPlayer.isPlaying())
                 mediaPlayer.stop();
-        }else if(v.getId() == R.id.play_azan_img){
+        } else if (v.getId() == R.id.play_azan_img) {
             playSong(this);
         }
     }
-
-
-
 
 
     public void spitedAzanTime() {
@@ -138,10 +143,10 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
 
         oghatDbList = getAll(splitted[0]);
 
-
         getDateOghat();
 
         checkSobZohrAsr();
+
     }
 
 
@@ -237,7 +242,17 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
     public String giveTime() {
 //        DateFormat df = new SimpleDateFormat("HH:mm");
         DateFormat df = new SimpleDateFormat("HH");
-        return df.format(Calendar.getInstance().getTime());
+        int convert = Integer.valueOf(df.format(Calendar.getInstance().getTime()));
+        String time = String.valueOf(++convert);
+        return time;
     }
+
+    @Override
+    public void onBackPressed() {
+        if (mediaPlayer.isPlaying())
+            mediaPlayer.stop();
+        super.onBackPressed();
+    }
+
 
 }

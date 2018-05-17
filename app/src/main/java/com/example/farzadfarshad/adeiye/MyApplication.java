@@ -6,8 +6,10 @@ package com.example.farzadfarshad.adeiye;
 
 import android.app.Application;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
+import android.widget.TextView;
 
 import com.activeandroid.ActiveAndroid;
 import com.android.volley.Request;
@@ -15,6 +17,8 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
+import com.example.farzadfarshad.adeiye.Tools.TypefaceUtil;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import javax.inject.Inject;
@@ -33,6 +37,7 @@ public class MyApplication extends Application {
 
     private static MyApplication mInstance;
 
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -48,6 +53,7 @@ public class MyApplication extends Application {
 
         ActiveAndroid.initialize(this);
 
+
         DaggerComponent component = DaggerDaggerComponent.builder()
                 .contextModule(new ContextModule(this))
                 .build();
@@ -55,7 +61,7 @@ public class MyApplication extends Application {
         component.injectMyApplication(this);
 
 
-
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "Fonts/IranNastaliq.ttf");
 //        glide = component.getGlide();
 
     }
@@ -102,4 +108,7 @@ public class MyApplication extends Application {
     public Glide getGlide(){
         return glide;
     }
+
+
+
 }

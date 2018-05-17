@@ -59,11 +59,13 @@ public class MovieFragment extends Fragment implements MovieAdapter.ItemClickLis
 
     List<MovieModelDetail> movieModelDetailList;
 
-    RecyclerView recyclerView;
 
 
     @BindView(R.id.search_etx)
     EditText search_etx;
+
+    @BindView(R.id.rvNumbers)
+    RecyclerView recyclerView;
 
 
     public MovieFragment() {
@@ -95,7 +97,6 @@ public class MovieFragment extends Fragment implements MovieAdapter.ItemClickLis
 
 
         // set up the RecyclerView
-        recyclerView = (RecyclerView) view.findViewById(R.id.rvNumbers);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 //        adapter = new MovieAdapter();
         adapter.setClickListener(this);
@@ -103,8 +104,8 @@ public class MovieFragment extends Fragment implements MovieAdapter.ItemClickLis
         search_etx.setOnClickListener(this);
 
 
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        /*ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);*/
 
         Call<MovieModel> call = apiService.getMovies();
 

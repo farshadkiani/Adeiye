@@ -1,6 +1,7 @@
 package com.example.farzadfarshad.adeiye.Adapter;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.farzadfarshad.adeiye.Model.SettingParentModel;
 import com.example.farzadfarshad.adeiye.R;
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
 import java.util.List;
 
@@ -25,6 +27,7 @@ public class SettingParentAdapter extends RecyclerView.Adapter<SettingParentAdap
     public onClick click;
     int pos;
     Context context;
+    SharedPreferencesTools sharedPreferencesTools;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView row_recycler_txt;
@@ -42,6 +45,7 @@ public class SettingParentAdapter extends RecyclerView.Adapter<SettingParentAdap
         this.settingParentModelList = settingParentModelList;
         this.pos = position;
         this.context = context;
+        sharedPreferencesTools = new SharedPreferencesTools(context);
     }
 
     @Override
@@ -64,6 +68,8 @@ public class SettingParentAdapter extends RecyclerView.Adapter<SettingParentAdap
             }
         });
 
+
+
         if (position == pos) {
             holder.row_recycler_txt.setBackgroundColor(context.getResources().getColor(R.color.White));
             holder.row_recycler_txt.setTextColor(context.getResources().getColor(R.color.black));
@@ -73,7 +79,7 @@ public class SettingParentAdapter extends RecyclerView.Adapter<SettingParentAdap
             holder.row_recycler_txt.setTextColor(context.getResources().getColor(R.color.White));
             holder.linear_recycler.setBackgroundColor(context.getResources().getColor(R.color.black));
         }
-
+        setFontText(holder.row_recycler_txt);
     }
 
     @Override
@@ -87,5 +93,12 @@ public class SettingParentAdapter extends RecyclerView.Adapter<SettingParentAdap
 
     public interface onClick {
         void click(int position);
+    }
+
+    public void setFontText(TextView textView) {
+        Typeface face = Typeface.createFromAsset(context.getAssets(),
+                "Fonts/" + sharedPreferencesTools.getFont());
+        textView.setTypeface(face);
+
     }
 }

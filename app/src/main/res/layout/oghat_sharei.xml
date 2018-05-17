@@ -9,7 +9,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="5dp"
         card_view:cardCornerRadius="4dp">
@@ -95,6 +95,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/nimeshab_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="نیمه شب " />
@@ -115,6 +116,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/esha_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="عشا  |" />
@@ -135,6 +137,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/maghteb_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="مغرب  |" />
@@ -155,6 +158,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/ghoroob_matn_tx"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="غروب  |" />
@@ -175,6 +179,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/asr_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="عصر  |" />
@@ -195,6 +200,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/zohr_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="ظهر  |" />
@@ -215,6 +221,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tolo_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="طلوع  |" />
@@ -235,6 +242,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/sob_matn_txt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="صبح  |" />

@@ -2,6 +2,7 @@ package com.example.farzadfarshad.adeiye.Activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.example.farzadfarshad.adeiye.Database.AyeDb;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.MainActivity;
 import com.example.farzadfarshad.adeiye.Model.AzanModel.Example;
+import com.example.farzadfarshad.adeiye.MyApplication;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPI;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPIAzan;
@@ -54,6 +56,9 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.sob_txt)
     TextView sob_txt;
 
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
+
     @BindView(R.id.toolo_txt)
     TextView toolo_txt;
 
@@ -78,8 +83,35 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
     @BindView(R.id.ofogh_txt)
     TextView ofogh_txt;
 
+    @BindView(R.id.esha_matn_txt)
+    TextView esha_matn_txt;
+
+    @BindView(R.id.tolo_matn_txt)
+    TextView tolo_matn_txt;
+
+    @BindView(R.id.show_main_txt)
+    TextView show_main_txt;
+
+    @BindView(R.id.maghteb_matn_txt)
+    TextView maghteb_matn_txt;
+
+    @BindView(R.id.ghoroob_matn_tx)
+    TextView ghoroob_matn_tx;
+
     @BindView(R.id.pakhsh_txt)
     TextView pakhsh_txt;
+
+    @BindView(R.id.zohr_matn_txt)
+    TextView zohr_matn_txt;
+
+    @BindView(R.id.sob_matn_txt)
+    TextView sob_matn_txt;
+
+    @BindView(R.id.nimeshab_matn_txt)
+    TextView nimeshab_matn_txt;
+
+    @BindView(R.id.asr_matn_txt)
+    TextView asr_matn_txt;
 
     @BindView(R.id.play_img)
     ImageView play_img;
@@ -120,6 +152,28 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
 
     private void initView() {
 
+        setFontView(toolbar_title, save_btn);
+        setFontView(ofogh_txt , null);
+        setFontView(pakhsh_txt , null);
+        setFontView(show_main_txt , null);
+        setFontView(nimeshab_txt , null);
+        setFontView(esha_matn_txt , null);
+        setFontView(esha_txt , null);
+        setFontView(maghteb_matn_txt , null);
+        setFontView(maghreb_txt , null);
+        setFontView(ghoroob_matn_tx , null);
+        setFontView(ghoroob_txt , null);
+        setFontView(asr_matn_txt , null);
+        setFontView(asr_txt , null);
+        setFontView(zohr_matn_txt , null);
+        setFontView(zohr_txt , null);
+        setFontView(tolo_matn_txt , null);
+        setFontView(toolo_txt , null);
+        setFontView(sob_matn_txt , null);
+        setFontView(sob_txt , null);
+        setFontView(nimeshab_matn_txt , null);
+        setFontView(nimeshab_txt , null);
+
         if (sharedPreferencesTools.getShowOghat())
             main_chb.setChecked(true);
         else
@@ -129,6 +183,8 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
         SPINNERLIST = getResources().getStringArray(R.array.province);
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, SPINNERLIST);
         ostan_spn.setAdapter(arrayAdapter);
+
+
 
         ostan_spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -146,6 +202,15 @@ public class CityAzanActivity extends AppCompatActivity implements View.OnClickL
 
         setViewOghat();
 
+    }
+
+    public void setFontView(TextView textview, Button button) {
+        Typeface face = Typeface.createFromAsset(getAssets(),
+                "Fonts/" + sharedPreferencesTools.getFont());
+        if (textview != null)
+            textview.setTypeface(face);
+        if (button != null)
+            button.setTypeface(face);
     }
 
     private void getDate() {

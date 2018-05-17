@@ -19,6 +19,8 @@ public class SharedPreferencesTools {
     public static String ZOHR = "Zohr";
     public static String ASR = "Asr";
     public static String SHOWOGHAT = "ShowOghat";
+    public static String Font = "Font";
+    public static String Size = "Size";
 
     public SharedPreferencesTools(Context context) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -91,4 +93,23 @@ public class SharedPreferencesTools {
     public boolean getShowOghat() {
         return sharedpreferences.getBoolean(SHOWOGHAT , false);
     }
+
+    public String getFont(){
+        return sharedpreferences.getString(Font , "bnazanin.ttf");
+    }
+
+    public void setFont(String font_name){
+        editor.putString(Font , font_name);
+        editor.commit();
+    }
+
+    public int getFontSize(){
+        return sharedpreferences.getInt(Size , 18);
+    }
+
+    public void setFontSize(int size){
+        editor.putInt(Size , size);
+        editor.commit();
+    }
+
 }

@@ -199,7 +199,7 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
                 .thumbnail(0.5f)
                 .crossFade()
                 .placeholder(R.drawable.graphic)
-                .error(getResources().getDrawable(R.drawable.wall))
+//                .error(getResources().getDrawable(R.drawable.wall))
                 .into(day_img);
 
 

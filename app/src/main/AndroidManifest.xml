@@ -117,7 +117,7 @@
         <activity android:name=".Activity.noteActivity" />
         <activity android:name=".Activity.QiblaActivity" />
         <activity android:name=".Activity.CircleActivity" />
-        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Setting.SettingActivity" />
         <activity android:name=".Movie.MovieFilmActivity" />
         <activity android:name=".PaskheAzan.PakhshAzanActiviy"></activity>
     </application>

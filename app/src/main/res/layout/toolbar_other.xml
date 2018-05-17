@@ -24,22 +24,17 @@
                 android:layout_height="80dp"
                 android:background="@drawable/graphic" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_alignParentBottom="true"
-                android:background="@color/colorAccent" />
 
             <TextView
                 android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
                 android:layout_centerInParent="true"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
-                android:layout_marginLeft="12dp"
                 android:text="ادعیه"
                 android:textColor="@color/White"
+                android:gravity="center"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -75,6 +70,11 @@
                 android:layout_marginRight="16dp"/>
 
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/colorAccent" />
         </RelativeLayout>
 
     </android.support.v7.widget.Toolbar>

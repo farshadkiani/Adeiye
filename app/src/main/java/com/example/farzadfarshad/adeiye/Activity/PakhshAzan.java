@@ -91,18 +91,17 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
     private void checkToStartServise() {
         if (sob_che.isChecked()) {
             sharedPreferencesTools.setSobAzan(true);
-
-        }
+        }else sharedPreferencesTools.setSobAzan(false);
 
         if (zohr_che.isChecked()) {
             sharedPreferencesTools.setZohrAzan(true);
-
-        }
+        }else sharedPreferencesTools.setZohrAzan(false);
 
         if (mahgreb_che.isChecked()) {
             sharedPreferencesTools.setAsrAzan(true);
+        }else sharedPreferencesTools.setAsrAzan(false);
 
-        }
+
         if (sharedPreferencesTools.getSOB() || sharedPreferencesTools.getZohr() || sharedPreferencesTools.getAsr()) {
             spitedAzanTime();
             callServie();
@@ -114,11 +113,10 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
     private void callServie() {
         Calendar calendar = Calendar.getInstance();
 
-/*
-        calendar.set(Calendar.HOUR_OF_DAY, 13);
-        calendar.set(Calendar.MINUTE, 17);
+       /* calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 7);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.DAY_OF_MONTH, 10);*/
+        calendar.set(Calendar.DAY_OF_MONTH, 17);*/
 
 
         //// TODO: 5/9/2018

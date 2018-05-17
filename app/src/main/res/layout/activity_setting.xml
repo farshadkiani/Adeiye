@@ -6,7 +6,7 @@
     android:layout_gravity="right"
     android:gravity="right"
     android:orientation="vertical"
-    tools:context="com.example.farzadfarshad.adeiye.Activity.SettingActivity">
+    tools:context="com.example.farzadfarshad.adeiye.Setting.SettingActivity">
 
 
     <include
@@ -23,7 +23,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/relative_left"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:layout_weight="0.75">
@@ -33,7 +33,7 @@
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/relative_right"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_gravity="right"
             android:layout_weight="0.25"

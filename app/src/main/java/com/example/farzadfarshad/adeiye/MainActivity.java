@@ -31,7 +31,8 @@ import com.example.farzadfarshad.adeiye.Activity.ChangeColorActivity;
 import com.example.farzadfarshad.adeiye.Activity.ChangeLineActivtiy;
 import com.example.farzadfarshad.adeiye.Activity.CityAzanActivity;
 import com.example.farzadfarshad.adeiye.Activity.QiblaActivity;
-import com.example.farzadfarshad.adeiye.Activity.SettingActivity;
+import com.example.farzadfarshad.adeiye.PdfShow.PdfShowFragment;
+import com.example.farzadfarshad.adeiye.Setting.SettingActivity;
 import com.example.farzadfarshad.adeiye.Fragments.DoaFragment;
 import com.example.farzadfarshad.adeiye.Movie.MovieFragment;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
@@ -47,6 +48,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @BindView(R.id.film_img)
     ImageView film_img;
+
+    @BindView(R.id.pdf_img)
+    ImageView pdf_img;
 
     @BindView(R.id.adeiye_img)
     ImageView adeiye_img;
@@ -107,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sliding_img.setOnClickListener(this);
         adeiye_img.setOnClickListener(this);
         film_img.setOnClickListener(this);
+        pdf_img.setOnClickListener(this);
 
 
         final Calendar calendar = Calendar.getInstance();
@@ -573,6 +578,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));*/
                 setFragment(new DoaFragment(), "main");
                 break;
+
+            case R.id.pdf_img:
+                setFragment(new PdfShowFragment() , "pdf");
+                break;
         }
     }
 
@@ -622,9 +631,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (fragment instanceof DoaFragment) {
             adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
             film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
         } else if (fragment instanceof MovieFragment) {
             film_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
             adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        } else if (fragment instanceof PdfShowFragment) {
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
         }
 
     }
@@ -636,10 +651,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (check_stack.equals("main") || check_stack.equals("null")) {
             adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
             film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
         } else if (check_stack.equals("film")) {
             film_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
             adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
-        } else if (check_stack.equals("nullexit")) {
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        } else if(check_stack.equals("pdf")){
+            pdf_img.setColorFilter(ContextCompat.getColor(this, R.color.colorGreen), android.graphics.PorterDuff.Mode.MULTIPLY);
+            adeiye_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+            film_img.setColorFilter(ContextCompat.getColor(this, R.color.khakestari));
+        }
+        else if (check_stack.equals("nullexit")) {
 
         }
     }

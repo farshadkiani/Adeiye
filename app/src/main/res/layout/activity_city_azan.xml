@@ -51,7 +51,7 @@
     <include
         android:id="@+id/include_view"
         android:layout_width="357dp"
-        android:layout_height="106dp"
+        android:layout_height="wrap_content"
         layout="@layout/oghat_sharei"
         tools:layout_editor_absoluteX="16dp"
         app:layout_constraintTop_toTopOf="@+id/save_btn"
