@@ -39,6 +39,7 @@ import com.example.farzadfarshad.adeiye.GridSunActivity;
 import com.example.farzadfarshad.adeiye.Movie.PermissionHandler;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ServerAPI;
+import com.example.farzadfarshad.adeiye.Setting.SettingActivity;
 import com.karumi.expandableselector.ExpandableItem;
 import com.karumi.expandableselector.ExpandableSelector;
 import com.karumi.expandableselector.OnExpandableItemClickListener;
@@ -117,6 +118,9 @@ public class FarajActivity extends AppCompatActivity implements View.OnClickList
     private int forwardTime = 2000, backwardTime = 2000;
     private Handler durationHandler = new Handler();
 
+    //
+    byte color_adapter = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,16 +139,17 @@ public class FarajActivity extends AppCompatActivity implements View.OnClickList
         }
         arrayList = getAll();
 
-        initView();
+        initView((byte) 0);
 
         initMenuFragment();
     }
 
-    private void initView() {
+    private void initView(byte color) {
         mediaPlayer = new MediaPlayer();
-        doaAdapter = new DoaAdapter(this, arrayList);
+        doaAdapter = new DoaAdapter(this, arrayList, color);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recycler_view.setLayoutManager(mLayoutManager);
+        doaAdapter.notifyDataSetChanged();
         recycler_view.setAdapter(doaAdapter);
         toolbar_title.setText(getResources().getString(R.string.doa_faraj));
         back_img.setOnClickListener(this);
@@ -320,10 +325,10 @@ public class FarajActivity extends AppCompatActivity implements View.OnClickList
         List<MenuObject> menuObjects = new ArrayList<>();
 
         MenuObject close = new MenuObject();
-        close.setResource(R.drawable.icn_close);
+        close.setResource(R.drawable.exit_nav);
 
         MenuObject send = new MenuObject(getResources().getString(R.string.play));
-        send.setResource(R.drawable.play);
+        send.setResource(R.drawable.play_nav);
 
         MenuObject like = new MenuObject(getResources().getString(R.string.nav_setting));
         Bitmap b = BitmapFactory.decodeResource(getResources(), R.drawable.settinges);
@@ -331,7 +336,7 @@ public class FarajActivity extends AppCompatActivity implements View.OnClickList
 
         MenuObject addFr = new MenuObject(getResources().getString(R.string.add_favorite_list));
         BitmapDrawable bd = new BitmapDrawable(getResources(),
-                BitmapFactory.decodeResource(getResources(), R.drawable.favorites));
+                BitmapFactory.decodeResource(getResources(), R.drawable.star_nav));
         addFr.setDrawable(bd);
 
         MenuObject addFav = new MenuObject(getResources().getString(R.string.dark));
@@ -360,6 +365,19 @@ public class FarajActivity extends AppCompatActivity implements View.OnClickList
 
         if (position == 1) {
             checkPermisson();
+        } else if (position == 2) {
+            Intent intent = new Intent(this, SettingActivity.class);
+            startActivity(intent);
+            finish();
+        } else if (position == 3) {
+        } else if (position == 4) {
+            if (color_adapter == 0) {
+                initView((byte) 1);
+                color_adapter = 1;
+            } else {
+                initView((byte) 0);
+                color_adapter = 0;
+            }
         }
 
 

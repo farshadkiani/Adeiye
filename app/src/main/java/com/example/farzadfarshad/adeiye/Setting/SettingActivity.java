@@ -76,7 +76,7 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
         itemList.add(new Item("Item " + 0, Item.ItemType.ONE_ITEM));
-        ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList , getBaseContext() , toolbar_title);
+        ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList , SettingActivity.this , toolbar_title);
         recyclerViewLeft.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerViewLeft.setItemAnimator(new DefaultItemAnimator());
         recyclerViewLeft.setAdapter(itemArrayAdapter);

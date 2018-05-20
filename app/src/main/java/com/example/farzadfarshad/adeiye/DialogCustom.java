@@ -62,6 +62,10 @@ public class DialogCustom extends android.app.Dialog {
             dialog_btn.setVisibility(View.VISIBLE);
             progress.setVisibility(View.GONE);
             title_txt.setText(context.getResources().getString(R.string.download_file));
+        } else if(context instanceof MainActivity){
+            dialog_btn.setVisibility(View.VISIBLE);
+            progress.setVisibility(View.GONE);
+            title_txt.setText(context.getResources().getString(R.string.download_file));
         } else {
             dialog_btn.setVisibility(View.GONE);
             progress.setVisibility(View.GONE);

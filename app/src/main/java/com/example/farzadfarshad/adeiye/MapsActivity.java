@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -16,11 +17,15 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.farzadfarshad.adeiye.Interface.RetrofitMaps;
 import com.example.farzadfarshad.adeiye.MapModel.Example;
 import com.example.farzadfarshad.adeiye.Tools.GPSTracker;
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
@@ -41,6 +46,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.HashMap;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.GsonConverterFactory;
@@ -50,7 +57,7 @@ import retrofit.Retrofit;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        LocationListener, View.OnClickListener {
 
     private GoogleMap mMap;
     double latitude;
@@ -60,6 +67,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
+    SharedPreferencesTools sharedPreferencesTools;
+
+    @BindView(R.id.back_img)
+    ImageView back_img;
+
+
+    @BindView(R.id.play_img)
+    ImageView play_img;
+
+
+    @BindView(R.id.toolbar_title)
+    TextView toolbar_title;
+
+    @BindView(R.id.progress_mosque)
+    ProgressBar progress_mosque;
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -72,6 +94,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        ButterKnife.bind(this);
+        sharedPreferencesTools = new SharedPreferencesTools(this);
+        play_img.setVisibility(View.GONE);
+        back_img.setOnClickListener(this);
+        setFontView(toolbar_title, null);
 
         if (!checkLocationSetting())
             startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -93,6 +120,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
     }
 
     private boolean checkLocationSetting() {
@@ -103,11 +131,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         try {
             gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         try {
             network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
         } catch (Exception ex) {
+            ex.printStackTrace();
         }
 
         if (gps_enabled || network_enabled)
@@ -157,6 +187,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.setMyLocationEnabled(true);
         }
 
+/*
         Button btnRestaurant = (Button) findViewById(R.id.btnRestaurant);
         btnRestaurant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -171,16 +202,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onClick(View v) {
                 build_retrofit_and_get_response("hospital");
             }
-        });
+        });*/
 
         Button btnSchool = (Button) findViewById(R.id.btnSchool);
         btnSchool.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 //                build_retrofit_and_get_response("school");
+                progress_mosque.setVisibility(View.VISIBLE);
                 build_retrofit_and_get_response("mosque");
             }
         });
+        setFontView(null, btnSchool);
     }
 
     private void build_retrofit_and_get_response(String type) {
@@ -199,7 +232,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         call.enqueue(new Callback<Example>() {
             @Override
             public void onResponse(Response<Example> response, Retrofit retrofit) {
-
+                progress_mosque.setVisibility(View.GONE);
                 try {
                     mMap.clear();
                     // This loop will go through all the results and add marker on each location.
@@ -220,7 +253,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                         // move map camera
                         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-//                        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+                        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
                     }
                 } catch (Exception e) {
                     Log.d("onResponse", "There is an error");
@@ -231,6 +264,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onFailure(Throwable t) {
                 Log.d("onFailure", t.toString());
+                progress_mosque.setVisibility(View.GONE);
             }
         });
 
@@ -288,8 +322,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        //Todo salam
+        /*mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));*/
+
 
         Log.d("onLocationChanged", String.format("latitude:%.3f longitude:%.3f", latitude, longitude));
 
@@ -368,6 +404,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
 
+    public void setFontView(TextView textview, Button button) {
+        Typeface face = Typeface.createFromAsset(getAssets(),
+                "Fonts/" + sharedPreferencesTools.getFont());
+        if (textview != null)
+            textview.setTypeface(face);
+        if (button != null)
+            button.setTypeface(face);
+    }
 
-
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.back_img) {
+            onBackPressed();
+        }
+    }
 }

@@ -119,7 +119,8 @@
         <activity android:name=".Activity.CircleActivity" />
         <activity android:name=".Setting.SettingActivity" />
         <activity android:name=".Movie.MovieFilmActivity" />
-        <activity android:name=".PaskheAzan.PakhshAzanActiviy"></activity>
+        <activity android:name=".PaskheAzan.PakhshAzanActiviy" />
+        <activity android:name=".PdfShow.PdfShowActivtiy"></activity>
     </application>
 
 </manifest>

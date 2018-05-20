@@ -1,5 +1,6 @@
 package com.example.farzadfarshad.adeiye.Setting;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
@@ -9,9 +10,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.farzadfarshad.adeiye.DialogCustom;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
@@ -76,7 +80,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout_text, parent, false);
             return new ViewHolderOne(view);
         } else if (viewType == TYPE_TWO) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout_sun, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row_layout_two, parent, false);
             return new ViewHolderTwo(view);
         } else {
             throw new RuntimeException("The type has to be ONE or TWO");
@@ -145,8 +149,20 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     private void initLayoutTwo(ViewHolderTwo holder, int pos) {
-        holder.tvLeft.setText(itemList.get(pos).getName());
+//        holder.tvLeft.setText(itemList.get(pos).getName());
 //        holder.tvRight.setText(itemList.get(pos).getName());
+        Typeface face = Typeface.createFromAsset(context.getAssets(),
+                "Fonts/" + sharedPreferencesTools.getFont());
+        holder.moazen.setTypeface(face);
+        holder.moazen.setTextSize(sharedPreferencesTools.getFontSize());
+
+        holder.shive_txt.setTypeface(face);
+        holder.shive_txt.setTextSize(sharedPreferencesTools.getFontSize());
+
+        holder.calculate_txt.setTypeface(face);
+        holder.calculate_txt.setTextSize(sharedPreferencesTools.getFontSize());
+
+        holder.shive_lny.setOnClickListener(this);
     }
 
     @Override
@@ -166,6 +182,7 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             sharedPreferencesTools.setFontSize(size);
             notifyDataSetChanged();
             SettingActivity.notif();
+        } else if (v.getId() == R.id.shive_lny){
         }
     }
 
@@ -189,11 +206,17 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     static class ViewHolderTwo extends RecyclerView.ViewHolder {
-        public TextView tvLeft, tvRight;
+        public TextView moazen, shive_txt , calculate_txt;
+        Spinner spinner;
+        LinearLayout shive_lny;
 
         public ViewHolderTwo(View itemView) {
             super(itemView);
-            tvLeft = (TextView) itemView.findViewById(R.id.tv_android);
+            moazen = (TextView) itemView.findViewById(R.id.moazen_txt);
+            shive_txt = (TextView) itemView.findViewById(R.id.shive_txt);
+            calculate_txt = (TextView) itemView.findViewById(R.id.calculate_txt);
+            spinner = (Spinner) itemView.findViewById(R.id.spinner_moazen);
+            shive_lny  = (LinearLayout) itemView.findViewById(R.id.shive_lny);
         }
     }
 }
