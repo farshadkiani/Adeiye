@@ -25,7 +25,8 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SettingActivity extends AppCompatActivity implements View.OnClickListener {
+public class SettingActivity extends AppCompatActivity
+        implements View.OnClickListener {
 
     private List<SettingParentModel> movieList = new ArrayList<>();
     public static SettingParentAdapter mAdapter;
@@ -76,7 +77,8 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
 
 
         itemList.add(new Item("Item " + 0, Item.ItemType.ONE_ITEM));
-        ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList , SettingActivity.this , toolbar_title);
+        ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList, SettingActivity.this
+                , toolbar_title);
         recyclerViewLeft.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerViewLeft.setItemAnimator(new DefaultItemAnimator());
         recyclerViewLeft.setAdapter(itemArrayAdapter);
@@ -95,11 +97,10 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                         break;
                 }
 
-                ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList , getBaseContext() , toolbar_title);
+                ItemArrayAdapter itemArrayAdapter = new ItemArrayAdapter(itemList, getBaseContext(), toolbar_title);
                 recyclerViewLeft.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                 recyclerViewLeft.setItemAnimator(new DefaultItemAnimator());
                 recyclerViewLeft.setAdapter(itemArrayAdapter);
-
 
 
                 //for background list white and black when slect item
@@ -108,8 +109,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
                 recyclerViewRight.setAdapter(mAdapter);
 
 
-
-
+                itemArrayAdapter.setclicAzan(new clickAzanInterface() {
+                    @Override
+                    public void click() {
+                        CustomDialogAzan customDialogAzan = new CustomDialogAzan(SettingActivity.this);
+                        customDialogAzan.show();
+                    }
+                });
 
 
                /* settingChildAdapter = new SettingChildAdapter(SettingActivity.this, movieList, 0);
@@ -150,13 +156,13 @@ public class SettingActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    public  void setFontText(String fontText) {
+    public void setFontText(String fontText) {
         Typeface face = Typeface.createFromAsset(getAssets(),
                 "Fonts/" + fontText);
         toolbar_title.setTypeface(face);
     }
 
-    public static void notif(){
+    public static void notif() {
         mAdapter.notifyDataSetChanged();
     }
 

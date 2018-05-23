@@ -45,8 +45,10 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     TextView title;
 
+    clickAzanInterface clickAzanInterface;
+
     // Constructor of the class
-    public ItemArrayAdapter(ArrayList<Item> itemList, Context context, TextView title) {
+    public ItemArrayAdapter(ArrayList<Item> itemList, Context context, TextView title ) {
         this.itemList = itemList;
         this.context = context;
         this.title = title;
@@ -156,6 +158,9 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.moazen.setTypeface(face);
         holder.moazen.setTextSize(sharedPreferencesTools.getFontSize());
 
+        holder.moazen_dropdown_txt.setTypeface(face);
+        holder.moazen_dropdown_txt.setTextSize(sharedPreferencesTools.getFontSize());
+
         holder.shive_txt.setTypeface(face);
         holder.shive_txt.setTextSize(sharedPreferencesTools.getFontSize());
 
@@ -163,6 +168,8 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         holder.calculate_txt.setTextSize(sharedPreferencesTools.getFontSize());
 
         holder.shive_lny.setOnClickListener(this);
+
+        holder.linear_ly.setOnClickListener(this);
     }
 
     @Override
@@ -183,6 +190,17 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             notifyDataSetChanged();
             SettingActivity.notif();
         } else if (v.getId() == R.id.shive_lny){
+
+            if (clickAzanInterface != null){
+                clickAzanInterface.click();
+            }
+
+        } else if(v.getId() == R.id.linear_ly){
+
+            if (clickAzanInterface != null){
+                clickAzanInterface.click();
+            }
+
         }
     }
 
@@ -206,17 +224,22 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     static class ViewHolderTwo extends RecyclerView.ViewHolder {
-        public TextView moazen, shive_txt , calculate_txt;
-        Spinner spinner;
+        public TextView moazen, shive_txt , calculate_txt , moazen_dropdown_txt;
+        LinearLayout linear_ly;
         LinearLayout shive_lny;
 
         public ViewHolderTwo(View itemView) {
             super(itemView);
             moazen = (TextView) itemView.findViewById(R.id.moazen_txt);
+            moazen_dropdown_txt = (TextView) itemView.findViewById(R.id.moazen_dropdown_txt);
             shive_txt = (TextView) itemView.findViewById(R.id.shive_txt);
             calculate_txt = (TextView) itemView.findViewById(R.id.calculate_txt);
-            spinner = (Spinner) itemView.findViewById(R.id.spinner_moazen);
+            linear_ly = (LinearLayout) itemView.findViewById(R.id.linear_ly);
             shive_lny  = (LinearLayout) itemView.findViewById(R.id.shive_lny);
         }
+    }
+
+    public void setclicAzan(clickAzanInterface clickAzanInterface){
+        this.clickAzanInterface = clickAzanInterface;
     }
 }
