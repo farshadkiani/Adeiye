@@ -8,19 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
 import com.activeandroid.query.Select;
 import com.example.farzadfarshad.adeiye.Database.OghatDb;
 import com.example.farzadfarshad.adeiye.Model.CheckAzan;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Services.MyService;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -66,7 +63,6 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
 
         CheckboxChecked();
 
-
     }
 
     private void CheckboxChecked() {
@@ -102,7 +98,9 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
         }else sharedPreferencesTools.setAsrAzan(false);
 
 
-        if (sharedPreferencesTools.getSOB() || sharedPreferencesTools.getZohr() || sharedPreferencesTools.getAsr()) {
+        if (sharedPreferencesTools.getSOB()
+                || sharedPreferencesTools.getZohr()
+                || sharedPreferencesTools.getAsr()) {
             spitedAzanTime();
             callServie();
             finish();
@@ -113,10 +111,10 @@ public class PakhshAzan extends AppCompatActivity implements View.OnClickListene
     private void callServie() {
         Calendar calendar = Calendar.getInstance();
 
-       /* calendar.set(Calendar.HOUR_OF_DAY, 10);
-        calendar.set(Calendar.MINUTE, 7);
+        /*calendar.set(Calendar.HOUR_OF_DAY, 10);
+        calendar.set(Calendar.MINUTE, 8);
         calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.DAY_OF_MONTH, 17);*/
+        calendar.set(Calendar.DAY_OF_MONTH, 26);*/
 
 
         //// TODO: 5/9/2018

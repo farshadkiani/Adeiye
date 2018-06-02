@@ -2,9 +2,11 @@ package com.example.farzadfarshad.adeiye.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.CardView;
@@ -14,6 +16,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -33,6 +36,7 @@ import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.OnBMClickListener;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.SimpleCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomButtons.TextInsideCircleButton;
 import com.example.farzadfarshad.adeiye.BoomMenu.BoomMenuButton;
+import com.example.farzadfarshad.adeiye.CustomView.CircleView;
 import com.example.farzadfarshad.adeiye.CustomView.CustomTextView;
 import com.example.farzadfarshad.adeiye.Database.AyeDb;
 import com.example.farzadfarshad.adeiye.DialogCustom;
@@ -46,6 +50,7 @@ import com.example.farzadfarshad.adeiye.RetrofitManager.ApiClient;
 import com.example.farzadfarshad.adeiye.RetrofitManager.ApiInterface;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 import com.example.farzadfarshad.adeiye.Tools.SolarCalendar;
+import com.fasterxml.jackson.databind.deser.std.DateDeserializers;
 
 import org.json.JSONArray;
 
@@ -126,6 +131,11 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.card_view6)
     CardView card_view6;
 
+    CircleView circleview;
+
+    @BindView(R.id.clickcutton)
+    Button clickcutton;
+
     DialogCustom dialogCustom;
 
     SharedPreferencesTools sharedPreferencesTools;
@@ -176,9 +186,13 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_doa, container, false);
 
+        circleview = (CircleView) view.findViewById(R.id.circleview);
+
+
         ButterKnife.bind(this, view);
         faraj_btn.setOnClickListener(this);
         komeil_btn.setOnClickListener(this);
+        clickcutton.setOnClickListener(this);
 
         final ProgressDialog pDialog = new ProgressDialog(getContext());
         pDialog.setMessage(getResources().getString(R.string.get_data));
@@ -607,6 +621,17 @@ public class DoaFragment extends Fragment implements View.OnClickListener {
             case R.id.komeil_btn:
                 Intent intent = new Intent(getActivity(), MapsActivity.class);
                 startActivity(intent);
+                break;
+
+            case R.id.clickcutton:
+                String name = "salam";
+                try {
+                    circleview.setCircleColor(Color.GREEN);
+                    circleview.setLabelColor(Color.MAGENTA);
+                    circleview.setLabelText("Help");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

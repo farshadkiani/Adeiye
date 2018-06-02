@@ -21,6 +21,7 @@ public class SharedPreferencesTools {
     public static String SHOWOGHAT = "ShowOghat";
     public static String Font = "Font";
     public static String Size = "Size";
+    public static String Ghari = "Ghari";
 
     public SharedPreferencesTools(Context context) {
         sharedpreferences = context.getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
@@ -112,4 +113,12 @@ public class SharedPreferencesTools {
         editor.commit();
     }
 
+    public void setGhari(String ghari){
+        editor.putString(Ghari , ghari);
+        editor.commit();
+    }
+
+    public  String getGhari() {
+        return sharedpreferences.getString(Ghari , "ardabili");
+    }
 }

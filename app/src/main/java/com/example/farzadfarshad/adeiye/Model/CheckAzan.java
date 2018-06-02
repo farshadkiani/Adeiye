@@ -46,6 +46,13 @@ public class CheckAzan {
                 return "asr";
             else if (sharedPreferencesTools.getSOB())
                 return "sob_after";
+        } else if(Integer.valueOf(currentTime) < Integer.valueOf(sob)){
+            if (sharedPreferencesTools.getSOB())
+                return "sob";
+            else if (sharedPreferencesTools.getZohr())
+                return "zohr";
+            else if (sharedPreferencesTools.getAsr())
+                return "asr";
         }
 
 

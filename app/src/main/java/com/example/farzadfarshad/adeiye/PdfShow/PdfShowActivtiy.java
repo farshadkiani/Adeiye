@@ -7,18 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.farzadfarshad.adeiye.R;
-import com.necistudio.vigerpdf.VigerPDF;
-import com.necistudio.vigerpdf.adapter.VigerAdapter;
-import com.necistudio.vigerpdf.manage.OnResultListener;
+//import com.necistudio.vigerpdf.VigerPDF;
+//import com.necistudio.vigerpdf.adapter.VigerAdapter;
+//import com.necistudio.vigerpdf.manage.OnResultListener;
 
 import java.io.File;
 import java.util.ArrayList;
 
 public class PdfShowActivtiy extends AppCompatActivity {
 
-    VigerPDF vigerPDF;
+//    VigerPDF vigerPDF;
     private ViewPager viewPager;
-    private VigerAdapter adapter;
+//    private VigerAdapter adapter;
     private ArrayList<Bitmap> itemData;
 
     @Override
@@ -26,7 +26,7 @@ public class PdfShowActivtiy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pdf_show_activtiy);
         String path = getIntent().getStringExtra("path");
-        vigerPDF = new VigerPDF(this);
+//        vigerPDF = new VigerPDF(this);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         itemData = new ArrayList<>();
         fromFile(path);
@@ -38,7 +38,7 @@ public class PdfShowActivtiy extends AppCompatActivity {
     private void fromFile(String path) {
 //        adapter.notifyDataSetChanged();
         File file = new File(path);
-        vigerPDF.cancle();
+        /*vigerPDF.cancle();
         vigerPDF.initFromFile(file, new OnResultListener() {
             @Override
             public void resultData(Bitmap data) {
@@ -59,6 +59,6 @@ public class PdfShowActivtiy extends AppCompatActivity {
 
             }
 
-        });
+        });*/
     }
 }

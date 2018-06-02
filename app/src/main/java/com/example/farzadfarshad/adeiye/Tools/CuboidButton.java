@@ -103,6 +103,7 @@ public class CuboidButton extends TextView {
 
 
         } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             properties.recycle();
         }

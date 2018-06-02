@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="250dp"
     android:layout_height="250dp"
     android:layout_gravity="center">
@@ -19,7 +20,7 @@
         android:checked="true"/>
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/shie_txt"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="42dp"
@@ -40,7 +41,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/shie_txt"
         android:layout_marginEnd="8dp" />
 
     <TextView
@@ -53,7 +54,7 @@
         android:text="محمد آقاتی"
         app:layout_constraintLeft_toRightOf="@+id/dl_aghati_img"
         app:layout_constraintRight_toLeftOf="@+id/aghati_rdb"
-        app:layout_constraintTop_toBottomOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/shie_txt"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="42dp" />
@@ -74,12 +75,25 @@
         android:layout_width="30dp"
         android:layout_height="20dp"
         android:tint="@color/black"
-        app:srcCompat="@android:drawable/stat_sys_download"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@+id/dl_moazen_img"
         android:layout_marginStart="8dp" />
+
+    <Button
+        android:id="@+id/sabt_azan_btn"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="@string/sabt"
+        android:textColor="@color/White"
+        android:background="@drawable/check_answer_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -403,4 +403,12 @@
         <attr name="moveImage" format="boolean|reference"/>
     </declare-styleable>
 
+    <declare-styleable name="LovelyView">
+        <attr name="circleColor" format="color" />
+        <attr name="circleLabel" format="string"></attr>
+        <attr name="labelColor" format="color"></attr>
+        <attr name="circleColorSmaller" format="color"></attr>
+        <attr name="circleImageSmaller" format="reference"></attr>
+    </declare-styleable>
+
 </resources>

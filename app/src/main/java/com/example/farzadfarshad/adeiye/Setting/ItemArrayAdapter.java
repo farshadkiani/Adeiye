@@ -1,6 +1,5 @@
 package com.example.farzadfarshad.adeiye.Setting;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.support.v7.widget.RecyclerView;
@@ -13,14 +12,9 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.example.farzadfarshad.adeiye.DialogCustom;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
-
 import org.adw.library.widgets.discreteseekbar.DiscreteSeekBar;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +40,8 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     TextView title;
 
     clickAzanInterface clickAzanInterface;
+
+    clickAzanShive clickAzanShive;
 
     // Constructor of the class
     public ItemArrayAdapter(ArrayList<Item> itemList, Context context, TextView title ) {
@@ -191,8 +187,8 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             SettingActivity.notif();
         } else if (v.getId() == R.id.shive_lny){
 
-            if (clickAzanInterface != null){
-                clickAzanInterface.click();
+            if (clickAzanShive != null){
+                clickAzanShive.clicShive();
             }
 
         } else if(v.getId() == R.id.linear_ly){
@@ -241,5 +237,10 @@ public class ItemArrayAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     public void setclicAzan(clickAzanInterface clickAzanInterface){
         this.clickAzanInterface = clickAzanInterface;
+    }
+
+    public void setClickAzanShive(clickAzanShive clickAzanShive)
+    {
+        this.clickAzanShive = clickAzanShive;
     }
 }

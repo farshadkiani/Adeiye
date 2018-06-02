@@ -12,7 +12,6 @@ import retrofit2.http.Url;
  */
 
 public interface ServerAPI {
-
     @GET
     Call<ResponseBody> downlload(@Url String fileUrl);
 

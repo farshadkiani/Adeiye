@@ -117,6 +117,15 @@ public class SettingActivity extends AppCompatActivity
                     }
                 });
 
+                itemArrayAdapter.setClickAzanShive(new clickAzanShive() {
+                    @Override
+                    public void clicShive() {
+                        CustomDialogShiveAzan customDialogShiveAzan
+                                = new CustomDialogShiveAzan(SettingActivity.this);
+                        customDialogShiveAzan.show();
+                    }
+                });
+
 
                /* settingChildAdapter = new SettingChildAdapter(SettingActivity.this, movieList, 0);
                 RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

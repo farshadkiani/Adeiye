@@ -120,7 +120,8 @@
         <activity android:name=".Setting.SettingActivity" />
         <activity android:name=".Movie.MovieFilmActivity" />
         <activity android:name=".PaskheAzan.PakhshAzanActiviy" />
-        <activity android:name=".PdfShow.PdfShowActivtiy"></activity>
+        <activity android:name=".PdfShow.PdfShowActivtiy" />
+        <activity android:name=".NewAdeiye.AddDoaActivty"></activity>
     </application>
 
 </manifest>

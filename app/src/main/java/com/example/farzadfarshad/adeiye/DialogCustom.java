@@ -11,6 +11,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.farzadfarshad.adeiye.Activity.FarajActivity;
+import com.example.farzadfarshad.adeiye.Setting.SettingActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -66,6 +67,10 @@ public class DialogCustom extends android.app.Dialog {
             dialog_btn.setVisibility(View.VISIBLE);
             progress.setVisibility(View.GONE);
             title_txt.setText(context.getResources().getString(R.string.download_file));
+        }else if(context instanceof SettingActivity){
+            dialog_btn.setVisibility(View.VISIBLE);
+            progress.setVisibility(View.GONE);
+            title_txt.setText(context.getResources().getString(R.string.download_volume_ghari));
         } else {
             dialog_btn.setVisibility(View.GONE);
             progress.setVisibility(View.GONE);

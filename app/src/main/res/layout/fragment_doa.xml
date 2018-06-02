@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.farzadfarshad.adeiye.Fragments.DoaFragment">
 
 
@@ -993,6 +994,23 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <Button
+                android:id="@+id/clickcutton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <com.example.farzadfarshad.adeiye.CustomView.CircleView
+                android:id="@+id/circleview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                custom:circleColor="#ff0099"
+                custom:circleLabel="Hello"
+                custom:labelColor="#ffff66"
+                android:layout_gravity="center"
+                custom:circleColorSmaller="@color/colorPrimary"
+                custom:circleImageSmaller="@drawable/namaz" />
 
         </LinearLayout>
 

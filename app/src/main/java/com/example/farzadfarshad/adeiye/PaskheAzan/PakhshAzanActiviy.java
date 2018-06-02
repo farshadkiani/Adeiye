@@ -20,6 +20,8 @@ import com.example.farzadfarshad.adeiye.Movie.DaggerMovieFragmentComponent;
 import com.example.farzadfarshad.adeiye.Movie.MovieFragmentComponent;
 import com.example.farzadfarshad.adeiye.R;
 import com.example.farzadfarshad.adeiye.Services.MyService;
+import com.example.farzadfarshad.adeiye.Setting.PlayAzan;
+import com.example.farzadfarshad.adeiye.Tools.SharedPreferencesTools;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -56,6 +58,10 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
     String[] splitted_time_azan;
     PendingIntent pi;
 
+    SharedPreferencesTools sharedPreferencesTools;
+
+    PlayAzan playAzan;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +79,7 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
 
         initView();
 
-        playSong(this);
+//        playSong(this);
 
 
         final Calendar calendar = Calendar.getInstance();
@@ -93,12 +99,30 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
     }
 
     private void initView() {
-        Intent myService = new Intent(this, MyService.class);
-        stopService(myService);
+       /* Intent myService = new Intent(this, MyService.class);
+        stopService(myService);*/
         time_sob__txt.setText(oghatDbList.get(0).getFajr());
         stop_img.setOnClickListener(this);
         play_azan_img.setOnClickListener(this);
+        sharedPreferencesTools = new SharedPreferencesTools(this);
+
+
+
+        checkPakhshAzan();
+
 //        mediaPlayer = new MediaPlayer();
+    }
+
+    private void checkPakhshAzan() {
+
+        if (sharedPreferencesTools.getGhari().equals("ardabili")) {
+            playAzan = new PlayAzan(this, "", mediaPlayer);
+            playAzan.playFromAssest();
+        }else if (sharedPreferencesTools.getGhari().equals("aghati")){
+            playAzan = new PlayAzan(this, sharedPreferencesTools.getGhari(), mediaPlayer);
+            playAzan.playFromSd();
+        }
+
     }
 
 
@@ -131,8 +155,10 @@ public class PakhshAzanActiviy extends AppCompatActivity implements View.OnClick
         if (v.getId() == R.id.stop_img) {
             if (mediaPlayer.isPlaying())
                 mediaPlayer.stop();
+            checkPakhshAzan();
         } else if (v.getId() == R.id.play_azan_img) {
-            playSong(this);
+//            playSong(this);
+            checkPakhshAzan();
         }
     }
 
