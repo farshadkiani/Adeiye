@@ -145,7 +145,17 @@ public class PdfShowFragment extends Fragment implements PdfShowAdapter.ItemClic
 
     public void initRecycler(List<PdfModelDetail> contents) {
         this.pdfModelDetails = contents;
-        pdfShowAdapter = new PdfShowAdapter(getContext(), contents, MyApplication.getInstance().getGlide());
+        PdfModelDetail pdfModelDetail = new PdfModelDetail();
+        pdfModelDetail.setId(30);
+        pdfModelDetail.setTitle("test2");
+        pdfModelDetail.setFile("");
+        pdfModelDetails.add(pdfModelDetail);
+        PdfModelDetail pdfModelDetail1 = new PdfModelDetail();
+        pdfModelDetail1.setId(30);
+        pdfModelDetail1.setTitle("test3");
+        pdfModelDetail1.setFile("");
+        pdfModelDetails.add(pdfModelDetail1);
+        pdfShowAdapter = new PdfShowAdapter(getContext(), this.pdfModelDetails, MyApplication.getInstance().getGlide());
         recycler_pdf.setAdapter(pdfShowAdapter);
         pdfShowAdapter.setClickListener(this);
     }

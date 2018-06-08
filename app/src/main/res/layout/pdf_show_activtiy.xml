@@ -7,9 +7,9 @@
     tools:context="com.example.farzadfarshad.adeiye.PdfShow.PdfShowActivtiy">
 
 
-    <com.necistudio.vigerpdf.utils.ViewPagerZoomHorizontal
+  <!--  <com.necistudio.vigerpdf.utils.ViewPagerZoomHorizontal
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent" />-->
 
 </LinearLayout>

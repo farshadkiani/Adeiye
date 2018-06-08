@@ -27,9 +27,9 @@ public class PdfShowActivtiy extends AppCompatActivity {
         setContentView(R.layout.pdf_show_activtiy);
         String path = getIntent().getStringExtra("path");
 //        vigerPDF = new VigerPDF(this);
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
+//        viewPager = (ViewPager) findViewById(R.id.viewPager);
         itemData = new ArrayList<>();
-        fromFile(path);
+//        fromFile(path);
     }
 
 

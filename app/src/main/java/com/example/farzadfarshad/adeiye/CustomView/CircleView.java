@@ -12,10 +12,12 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
+import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.Toast;
 
 
 import com.example.farzadfarshad.adeiye.R;
@@ -51,7 +53,46 @@ public class CircleView extends View {
     private final int maxWidth = 80;
     private final int maxHeight = 80;
 
+    // check for click view
+    private boolean click = false;
+
+    public CircleView(Context context) {
+        super(context);
+        //init(null);
+    }
+
     public CircleView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(attrs, context);
+    }
+
+    public CircleView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init(attrs, context);
+    }
+
+    private void init(AttributeSet attrs, Context context) {
+        this.context = context;
+
+        setEnabled(false);
+        //get the attributes specified in attrs.xml using the name we included
+        TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
+                R.styleable.LovelyView, 0, 0);
+        try {
+            //get the text and colors specified using the names in attrs.xml
+            circleText = a.getString(R.styleable.LovelyView_circleLabel);
+            circleCol = a.getInteger(R.styleable.LovelyView_circleColor, 0);//0 is default
+            labelCol = a.getInteger(R.styleable.LovelyView_labelColor, 0);
+            cicleColSmaller = a.getInteger(R.styleable.LovelyView_circleColorSmaller, 0);
+            circleImgSmaller = a.getResourceId(R.styleable.LovelyView_circleImageSmaller, 0);
+            bitmap = BitmapFactory.decodeResource(getResources(), circleImgSmaller);
+        } finally {
+            a.recycle();
+        }
+
+    }
+
+   /* public CircleView(Context context, AttributeSet attrs) {
         super(context);
         this.context = context;
         //get the attributes specified in attrs.xml using the name we included
@@ -71,11 +112,8 @@ public class CircleView extends View {
 
         initView();
 
-    }
+    }*/
 
-    private void initView() {
-
-    }
 
     @Override
     protected void onDraw(Canvas canvas) {
@@ -100,7 +138,7 @@ public class CircleView extends View {
         if (viewWidthSmaller != viewWidthHalf && viewWidthSmaller == 0) {
             viewWidthSmaller = this.getMeasuredWidth() / 2;
             viewHeightSmaller = this.getMeasuredHeight() / 2;
-            viewWidthSmaller += radius/2;
+            viewWidthSmaller += radius / 2;
             viewHeightSmaller -= radius;
             radiusSmaller = radius / 2;
         }
@@ -187,7 +225,7 @@ public class CircleView extends View {
 
     public void setCircleColor(int newColor) {
         //update the instance variable
-        circleCol = newColor;
+        this.circleCol = newColor;
         //redraw the view
         invalidate();
         requestLayout();
@@ -195,7 +233,7 @@ public class CircleView extends View {
 
     public void setLabelColor(int newColor) {
         //update the instance variable
-        labelCol = newColor;
+        this.labelCol = newColor;
         //redraw the view
         invalidate();
         requestLayout();
@@ -203,26 +241,31 @@ public class CircleView extends View {
 
     public void setLabelText(String newLabel) {
         //update the instance variable
-        circleText = newLabel;
+        this.circleText = newLabel;
         //redraw the view
         invalidate();
         requestLayout();
+        setEnabled(false);
     }
 
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 
-        if (event.getActionMasked() == MotionEvent.ACTION_DOWN) {
+        if (event.getActionMasked() == MotionEvent.ACTION_DOWN && !click) {
+            click = true;
             setCircleColor(Color.GREEN);
-            setLabelText("salam");
+//            setLabelText("salam");
             setLabelColor(Color.MAGENTA);
             setAnimation();
-        }
+        }else
+            setEnabled(true);
+
         return super.onTouchEvent(event);
     }
 
     public void setAnimation() {
+
 
         // change value x for smaller circle
         ValueAnimator widthAnimator = ValueAnimator.ofInt(viewWidthSmaller, viewWidthHalf);
@@ -268,8 +311,6 @@ public class CircleView extends View {
         });
         radiusAnimator.setInterpolator(new AccelerateDecelerateInterpolator());
         radiusAnimator.start();
-
-
     }
 
 
@@ -318,5 +359,10 @@ public class CircleView extends View {
         Bitmap _bmp = Bitmap.createScaledBitmap(output, 2 * radius, 2 * radius, true);
         return _bmp;
 //        return output;
+    }
+
+    @Override
+    public void setOnClickListener(@Nullable OnClickListener l) {
+        super.setOnClickListener(l);
     }
 }
