@@ -12,6 +12,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -56,6 +57,8 @@ public class CircleView extends View {
     // check for click view
     private boolean click = false;
 
+    Typeface tf;
+
     public CircleView(Context context) {
         super(context);
         //init(null);
@@ -86,6 +89,30 @@ public class CircleView extends View {
             cicleColSmaller = a.getInteger(R.styleable.LovelyView_circleColorSmaller, 0);
             circleImgSmaller = a.getResourceId(R.styleable.LovelyView_circleImageSmaller, 0);
             bitmap = BitmapFactory.decodeResource(getResources(), circleImgSmaller);
+            int cf = a.getInteger(R.styleable.LovelyView_circlefontName, 0);
+            int fontName = 0;
+            switch (cf) {
+                case 1:
+                    fontName = R.string.bkoodk;
+                    break;
+                case 2:
+                    fontName = R.string.arial_regular;
+                    break;
+                case 3:
+                    fontName = R.string.bnazanin;
+                    break;
+                case 4:
+                    fontName = R.string.irannastealiq;
+                    break;
+                default:
+                    fontName = R.string.bkoodk;
+                    break;
+            }
+
+
+            tf = Typeface.createFromAsset(context.getAssets(),
+                    "Fonts/" + getResources().getString(fontName) + ".ttf");
+
         } finally {
             a.recycle();
         }
@@ -123,8 +150,8 @@ public class CircleView extends View {
         //paint object for drawing in onDraw
         circlePaintSmaller = new Paint();
         //get half of the width and height as we are working with a circle
-        viewWidthHalf = this.getMeasuredWidth() / 2;
-        viewHeightHalf = this.getMeasuredHeight() / 2;
+        viewWidthHalf = this.getMeasuredWidth() / 2 + 10;
+        viewHeightHalf = this.getMeasuredHeight() / 2 + 10;
 
 
         //get the radius as half of the width or height, whichever is smaller
@@ -148,6 +175,7 @@ public class CircleView extends View {
 
         circlePaintSmaller.setStyle(Paint.Style.FILL);
         circlePaintSmaller.setAntiAlias(true);
+        circlePaintSmaller.setTypeface(tf);
         //set the paint color using the circle color specified
         circlePaint.setColor(circleCol);
         //set the paint color using the circle color specified
@@ -155,12 +183,16 @@ public class CircleView extends View {
 
         canvas.drawCircle(viewWidthHalf, viewHeightHalf, radius, circlePaint);
         //set image
+        bitmap = BitmapFactory.decodeResource(getResources(), circleImgSmaller);
         imageIcon(canvas, circlePaint, viewWidthHalf, viewHeightHalf);
         //set the text color using the color specified
         circlePaint.setColor(labelCol);
         //set text properties
         circlePaint.setTextAlign(Paint.Align.CENTER);
         circlePaint.setTextSize(50);
+        //set text small circle properties
+        circlePaintSmaller.setTextAlign(Paint.Align.CENTER);
+        circlePaintSmaller.setTextSize(50);
         //draw circle
         canvas.drawCircle(viewWidthSmaller, viewHeightSmaller, radiusSmaller, circlePaintSmaller);
 
@@ -173,7 +205,7 @@ public class CircleView extends View {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         int desiredWidth = 200;
-        int desiredHeight = 600;
+        int desiredHeight = 500;
 
         int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         int widthSize = MeasureSpec.getSize(widthMeasureSpec);
@@ -231,6 +263,14 @@ public class CircleView extends View {
         requestLayout();
     }
 
+    public void setCircleImgSmaller(int newcicleImgSmaller) {
+        // update the image
+        this.circleImgSmaller = newcicleImgSmaller;
+        // redraw the view
+        invalidate();
+        requestLayout();
+    }
+
     public void setLabelColor(int newColor) {
         //update the instance variable
         this.labelCol = newColor;
@@ -258,7 +298,7 @@ public class CircleView extends View {
 //            setLabelText("salam");
             setLabelColor(Color.MAGENTA);
             setAnimation();
-        }else
+        } else
             setEnabled(true);
 
         return super.onTouchEvent(event);

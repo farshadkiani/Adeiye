@@ -4,12 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.farzadfarshad.adeiye.PdfShow.PdfShowActivtiy">
 
 
-  <!--  <com.necistudio.vigerpdf.utils.ViewPagerZoomHorizontal
+    <include
+        android:id="@+id/toolbar_main"
+        layout="@layout/toolbar_other" />
+
+    <com.necistudio.vigerpdf.utils.ViewPagerZoomHorizontal
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />-->
+        android:layout_height="match_parent" />
 
 </LinearLayout>

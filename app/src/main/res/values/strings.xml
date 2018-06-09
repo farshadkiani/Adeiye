@@ -614,5 +614,7 @@
     <string name="calculate_oghat_sharei">شیوه های محاسبه اوقات شرعی</string>
     <string name="select_moazen">انتخاب موذن</string>
     <string name="download_volume_ghari">دانلود اذان ...</string>
+    <string name="download_completed">دانلود با موفقیت انجام شد</string>
+    <string name="not_download_completed">خطایی رخ داده است</string>
 
 </resources>
